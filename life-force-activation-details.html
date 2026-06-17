@@ -199,6 +199,30 @@
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=2194947754656140&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
+    <!-- Meta Pixel conversion tracking -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function fire(eventName) {
+                if (typeof fbq === 'function') { fbq('track', eventName); }
+            }
+            // Contact form submission -> Lead
+            document.querySelectorAll('form[action*="formsubmit.co"]').forEach(function (form) {
+                form.addEventListener('submit', function () { fire('Lead'); });
+            });
+            // Clicks on booking / contact links
+            document.addEventListener('click', function (e) {
+                var link = e.target.closest('a');
+                if (!link) return;
+                var href = link.getAttribute('href') || '';
+                if (href.indexOf('peach.nu') > -1 || href.indexOf('bokadirekt.se') > -1) {
+                    fire('Schedule');      // booking buttons
+                } else if (href.indexOf('mailto:') === 0 || href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) {
+                    fire('Contact');       // email / WhatsApp
+                }
+            });
+        });
+    </script>
+    <!-- End Meta Pixel conversion tracking -->
 </head>
     <body>
         <header style="padding-top: 0; margin-top: -1rem;">
