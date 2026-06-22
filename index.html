@@ -747,25 +747,8 @@
           }
         }
     </script>
-    <!-- Meta Pixel Code -->
-    <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '2194947754656140');
-        fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=2194947754656140&ev=PageView&noscript=1" /></noscript>
-    <!-- End Meta Pixel Code -->
+    <!-- Cookie consent + consent-gated Meta Pixel / Instagram (see js/consent.js) -->
+    <script src="js/consent.js"></script>
     <!-- Meta Pixel conversion tracking -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -2126,6 +2109,13 @@
                     <i class="fab fa-instagram" style="font-size: 2rem; color: #e6a756;" aria-hidden="true"></i>
                 </a>
             </div>
+            <p class="m-0 small mb-2">
+                <a href="integritetspolicy.html" class="text-faded" style="text-decoration:underline;"
+                    data-en="Privacy Policy" data-sv="Integritetspolicy">Privacy Policy</a>
+                &nbsp;&middot;&nbsp;
+                <a href="#" onclick="openCookieSettings();return false;" class="text-faded" style="text-decoration:underline;"
+                    data-en="Cookie settings" data-sv="Cookie-inställningar">Cookie settings</a>
+            </p>
             <p class="m-0 small">Copyright &copy; Soulrise Studio 2023</p>
         </div>
     </footer>
@@ -2134,8 +2124,7 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
 
-    <!-- Instagram Embed JS-->
-    <script async src="//www.instagram.com/embed.js"></script>
+    <!-- Instagram embed is loaded by js/consent.js only after cookie consent -->
 
     <!-- Language Switcher JS -->
     <script>
