@@ -119,6 +119,23 @@
         showBanner();
     };
 
+    // Keep the footer copyright year current automatically (no-JS fallback is hard-coded in the HTML).
+    function updateYear() {
+        var year = new Date().getFullYear();
+        var label = year > 2023 ? '2023–' + year : '2023';
+        var ps = document.querySelectorAll('p.m-0.small');
+        for (var i = 0; i < ps.length; i++) {
+            if (/Copyright/.test(ps[i].textContent)) {
+                ps[i].innerHTML = 'Copyright © Soulrise Studio ' + label;
+            }
+        }
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateYear);
+    } else {
+        updateYear();
+    }
+
     // Boot
     var c = getConsent();
     if (c === 'accepted') {
