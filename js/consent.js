@@ -121,8 +121,9 @@
 
     // Keep the footer copyright year current automatically (no-JS fallback is hard-coded in the HTML).
     function updateYear() {
+        var START = 2026;
         var year = new Date().getFullYear();
-        var label = year > 2023 ? '2023–' + year : '2023';
+        var label = year > START ? START + '–' + year : '' + START;
         var ps = document.querySelectorAll('p.m-0.small');
         for (var i = 0; i < ps.length; i++) {
             if (/Copyright/.test(ps[i].textContent)) {
