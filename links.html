@@ -75,13 +75,16 @@
         }
 
         .link-btn {
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            text-align: left;
             text-decoration: none;
             color: var(--dark);
             background-color: #ffffff;
             border: 1px solid #e7dcc7;
             border-radius: 14px;
-            padding: 1rem 1.25rem;
+            padding: 0.6rem 1.1rem 0.6rem 0.6rem;
             font-weight: 600;
             font-size: 1.02rem;
             box-shadow: 0 2px 6px rgba(47, 23, 15, 0.06);
@@ -91,6 +94,19 @@
         .link-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 14px rgba(47, 23, 15, 0.12);
+        }
+
+        .link-thumb {
+            width: 52px;
+            height: 52px;
+            border-radius: 10px;
+            object-fit: cover;
+            flex: none;
+        }
+
+        .link-text {
+            display: flex;
+            flex-direction: column;
         }
 
         .link-btn .sub {
@@ -110,6 +126,12 @@
 
         .link-btn.primary .sub {
             color: #5a3a1c;
+        }
+
+        .link-btn.no-thumb {
+            padding: 1rem 1.25rem;
+            justify-content: center;
+            text-align: center;
         }
 
         .icon-row {
@@ -176,45 +198,63 @@
 
         <div class="link-list">
             <a class="link-btn primary" href="https://www.soulrisestudio.com/#book-online">
-                <span data-en="🌸 Book Online" data-sv="🌸 Boka Online">🌸 Boka Online</span>
-                <span class="sub" data-en="Choose a service and time directly"
-                    data-sv="Välj tjänst och tid direkt">Välj tjänst och tid direkt</span>
+                <img class="link-thumb" src="assets/img/intro.jpg" alt="" />
+                <span class="link-text">
+                    <span data-en="Book Online" data-sv="Boka Online">Boka Online</span>
+                    <span class="sub" data-en="Choose a service and time directly"
+                        data-sv="Välj tjänst och tid direkt">Välj tjänst och tid direkt</span>
+                </span>
             </a>
 
             <a class="link-btn" href="https://www.soulrisestudio.com/remember-your-power.html">
-                <span>✨ Remember Your Power</span>
-                <span class="sub" data-en="3-month online program"
-                    data-sv="3-månaders onlineprogram">3-månaders onlineprogram</span>
+                <img class="link-thumb" src="assets/img/hem-till-dig-sjalv.jpg" alt="" />
+                <span class="link-text">
+                    <span>Remember Your Power</span>
+                    <span class="sub" data-en="3-month online program"
+                        data-sv="3-månaders onlineprogram">3-månaders onlineprogram</span>
+                </span>
             </a>
 
             <a class="link-btn" href="https://www.soulrisestudio.com/#source-connection">
-                <span>🌊 Source Connection Journey</span>
-                <span class="sub" data-en="Online group journey · 6 sessions"
-                    data-sv="Gruppresa online · 6 tillfällen">Gruppresa online · 6 tillfällen</span>
+                <img class="link-thumb" src="assets/img/about.jpg" alt="" />
+                <span class="link-text">
+                    <span>Source Connection Journey</span>
+                    <span class="sub" data-en="Online group journey · 6 sessions"
+                        data-sv="Gruppresa online · 6 tillfällen">Gruppresa online · 6 tillfällen</span>
+                </span>
             </a>
 
             <a class="link-btn" href="https://www.soulrisestudio.com/#events">
-                <span data-en="📍 In Person in Sweden" data-sv="📍 På plats i Sverige">📍 På plats i Sverige</span>
-                <span class="sub" data-en="Events &amp; private 1:1 sessions"
-                    data-sv="Events &amp; enskilda 1:1-sessioner">Events &amp; enskilda 1:1-sessioner</span>
+                <img class="link-thumb" src="assets/img/spinal-energetics-akersberga.jpg" alt="" />
+                <span class="link-text">
+                    <span data-en="In Person in Sweden" data-sv="På plats i Sverige">På plats i Sverige</span>
+                    <span class="sub" data-en="Events &amp; private 1:1 sessions"
+                        data-sv="Events &amp; enskilda 1:1-sessioner">Events &amp; enskilda 1:1-sessioner</span>
+                </span>
             </a>
 
             <a class="link-btn" href="https://retreat.soulrisestudio.com">
-                <span>🏝️ Wild Goddess Portal</span>
-                <span class="sub" data-en="Retreat in Spain · April 2027"
-                    data-sv="Retreat i Spanien · april 2027">Retreat i Spanien · april 2027</span>
+                <img class="link-thumb" src="assets/img/wild-goddess-portal.jpg" alt="" />
+                <span class="link-text">
+                    <span>Wild Goddess Portal</span>
+                    <span class="sub" data-en="Retreat in Spain · April 2027"
+                        data-sv="Retreat i Spanien · april 2027">Retreat i Spanien · april 2027</span>
+                </span>
             </a>
 
             <a class="link-btn" href="https://chat.whatsapp.com/HNXZ2CZYXxYFR9FMo2dBQt" target="_blank"
                 rel="noopener">
-                <span data-en="💚 Join the WhatsApp Group" data-sv="💚 Gå med i WhatsApp-gruppen">💚 Gå med i
-                    WhatsApp-gruppen</span>
-                <span class="sub" data-en="News, tips &amp; community"
-                    data-sv="Nyheter, tips &amp; gemenskap">Nyheter, tips &amp; gemenskap</span>
+                <img class="link-thumb" src="assets/img/cacao-ceremony.jpg" alt="" />
+                <span class="link-text">
+                    <span data-en="Join the WhatsApp Group" data-sv="Gå med i WhatsApp-gruppen">Gå med i
+                        WhatsApp-gruppen</span>
+                    <span class="sub" data-en="News, tips &amp; community"
+                        data-sv="Nyheter, tips &amp; gemenskap">Nyheter, tips &amp; gemenskap</span>
+                </span>
             </a>
 
-            <a class="link-btn" href="https://www.soulrisestudio.com/">
-                <span data-en="🌐 Visit the Website" data-sv="🌐 Till hemsidan">🌐 Till hemsidan</span>
+            <a class="link-btn no-thumb" href="https://www.soulrisestudio.com/">
+                <span data-en="Visit the Website" data-sv="Till hemsidan">Till hemsidan</span>
             </a>
         </div>
 
