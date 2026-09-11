@@ -142,6 +142,22 @@
         footer a {
             color: var(--tan);
         }
+
+        .lang-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: none;
+            border: 1px solid var(--tan);
+            border-radius: 999px;
+            padding: 0.35rem 0.9rem;
+            font-family: inherit;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+        }
     </style>
 </head>
 
@@ -149,41 +165,56 @@
     <div class="wrap">
         <img class="avatar" src="assets/img/lina-profile.jpg" alt="Lina Boström – Soulrise Studio" />
         <h1>Soulrise Studio</h1>
-        <p class="tagline">Life Force Activation · Healing &amp; Energiarbete</p>
+        <p class="tagline" data-en="Life Force Activation · Healing &amp; Energy Work"
+            data-sv="Life Force Activation · Healing &amp; Energiarbete">Life Force Activation · Healing &amp;
+            Energiarbete</p>
+
+        <button type="button" class="lang-toggle" id="languageToggle">
+            <i class="fas fa-globe" aria-hidden="true"></i>
+            <span id="langText">English</span>
+        </button>
 
         <div class="link-list">
             <a class="link-btn primary" href="https://www.soulrisestudio.com/#book-online">
-                🌸 Boka Online
-                <span class="sub">Välj tjänst och tid direkt</span>
+                <span data-en="🌸 Book Online" data-sv="🌸 Boka Online">🌸 Boka Online</span>
+                <span class="sub" data-en="Choose a service and time directly"
+                    data-sv="Välj tjänst och tid direkt">Välj tjänst och tid direkt</span>
             </a>
 
             <a class="link-btn" href="https://www.soulrisestudio.com/remember-your-power.html">
-                ✨ Remember Your Power
-                <span class="sub">3-månaders onlineprogram</span>
+                <span>✨ Remember Your Power</span>
+                <span class="sub" data-en="3-month online program"
+                    data-sv="3-månaders onlineprogram">3-månaders onlineprogram</span>
             </a>
 
             <a class="link-btn" href="https://www.soulrisestudio.com/#source-connection">
-                🌊 Source Connection Journey
-                <span class="sub">Gruppresa online · 6 tillfällen</span>
+                <span>🌊 Source Connection Journey</span>
+                <span class="sub" data-en="Online group journey · 6 sessions"
+                    data-sv="Gruppresa online · 6 tillfällen">Gruppresa online · 6 tillfällen</span>
             </a>
 
             <a class="link-btn" href="https://www.soulrisestudio.com/#events">
-                📍 På plats i Sverige
-                <span class="sub">Events &amp; enskilda 1:1-sessioner</span>
+                <span data-en="📍 In Person in Sweden" data-sv="📍 På plats i Sverige">📍 På plats i Sverige</span>
+                <span class="sub" data-en="Events &amp; private 1:1 sessions"
+                    data-sv="Events &amp; enskilda 1:1-sessioner">Events &amp; enskilda 1:1-sessioner</span>
             </a>
 
             <a class="link-btn" href="https://retreat.soulrisestudio.com">
-                🏝️ Wild Goddess Portal
-                <span class="sub">Retreat i Spanien · april 2027</span>
+                <span>🏝️ Wild Goddess Portal</span>
+                <span class="sub" data-en="Retreat in Spain · April 2027"
+                    data-sv="Retreat i Spanien · april 2027">Retreat i Spanien · april 2027</span>
             </a>
 
-            <a class="link-btn" href="https://www.soulrisestudio.com/#testimonials">
-                💬 Client Love
-                <span class="sub">Vad klienter säger</span>
+            <a class="link-btn" href="https://chat.whatsapp.com/HNXZ2CZYXxYFR9FMo2dBQt" target="_blank"
+                rel="noopener">
+                <span data-en="💚 Join the WhatsApp Group" data-sv="💚 Gå med i WhatsApp-gruppen">💚 Gå med i
+                    WhatsApp-gruppen</span>
+                <span class="sub" data-en="News, tips &amp; community"
+                    data-sv="Nyheter, tips &amp; gemenskap">Nyheter, tips &amp; gemenskap</span>
             </a>
 
             <a class="link-btn" href="https://www.soulrisestudio.com/">
-                🌐 Till hemsidan
+                <span data-en="🌐 Visit the Website" data-sv="🌐 Till hemsidan">🌐 Till hemsidan</span>
             </a>
         </div>
 
@@ -205,6 +236,31 @@
             © 2026 Soulrise Studio · <a href="https://www.soulrisestudio.com/">soulrisestudio.com</a>
         </footer>
     </div>
+
+    <script>
+        let currentLanguage = localStorage.getItem('selectedLanguage') || 'sv';
+
+        function updateLanguageDisplay() {
+            document.getElementById('langText').textContent = currentLanguage === 'en' ? 'Svenska' : 'English';
+        }
+
+        function applyTranslations() {
+            document.querySelectorAll('[data-en][data-sv]').forEach((el) => {
+                const text = el.getAttribute('data-' + currentLanguage);
+                if (text) el.innerHTML = text;
+            });
+        }
+
+        updateLanguageDisplay();
+        applyTranslations();
+
+        document.getElementById('languageToggle').addEventListener('click', () => {
+            currentLanguage = currentLanguage === 'en' ? 'sv' : 'en';
+            localStorage.setItem('selectedLanguage', currentLanguage);
+            updateLanguageDisplay();
+            applyTranslations();
+        });
+    </script>
 </body>
 
 </html>

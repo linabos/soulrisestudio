@@ -2271,6 +2271,24 @@
             });
         });
     </script>
+
+    <!-- Fix deep links (e.g. from links.html) landing in the wrong place because
+         late-loading images/fonts/the booking widget shift the page layout after
+         the browser's initial jump to the #anchor. -->
+    <script>
+        (function () {
+            function scrollToHashTarget() {
+                if (!location.hash) return;
+                const target = document.querySelector(location.hash);
+                if (target) target.scrollIntoView({ behavior: 'instant', block: 'start' });
+            }
+            window.addEventListener('load', function () {
+                scrollToHashTarget();
+                setTimeout(scrollToHashTarget, 300);
+                setTimeout(scrollToHashTarget, 1200);
+            });
+        })();
+    </script>
 </body>
 
 </html>
