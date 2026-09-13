@@ -222,14 +222,37 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html#home">Home</a></li>
+                        <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html#home">Home</a></li>
+                        <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html#events" data-en="In Person" data-sv="På plats">In Person</a></li>
                         <!-- Desktop dropdown -->
-                        <li class="nav-item dropdown px-lg-4 d-none d-lg-block">
+                        <li class="nav-item dropdown px-lg-2 d-none d-lg-block">
+                            <a class="nav-link dropdown-toggle text-uppercase" href="https://retreat.soulrisestudio.com"
+                                id="retreatDropdown" role="button" aria-expanded="false" data-en="Retreat"
+                                data-sv="Retreat">Retreat</a>
+                            <ul class="dropdown-menu" aria-labelledby="retreatDropdown">
+                                <li><a class="dropdown-item" href="https://retreat.soulrisestudio.com" data-en="Wild Goddess Portal · Spain, April 2027" data-sv="Wild Goddess Portal · Spanien, april 2027">Wild Goddess Portal · Spanien</a></li>
+                                <li><a class="dropdown-item" href="index.html#events" data-en="Retreat Sweden" data-sv="Retreat Sverige">Retreat Sverige</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Mobile: Collapsible retreat menu -->
+                        <li class="nav-item px-lg-2 d-lg-none">
+                            <a class="nav-link text-uppercase" href="#" data-bs-toggle="collapse"
+                                data-bs-target="#mobileRetreatMenu" aria-expanded="false"
+                                aria-controls="mobileRetreatMenu" data-en="Retreat ▼" data-sv="Retreat ▼">Retreat ▼</a>
+                            <div class="collapse" id="mobileRetreatMenu">
+                                <a class="nav-link" href="https://retreat.soulrisestudio.com" style="padding-left: 2rem; font-size: 0.9rem;" data-en="Wild Goddess Portal · Spain, April 2027" data-sv="Wild Goddess Portal · Spanien, april 2027">Wild Goddess Portal · Spanien</a>
+                                <a class="nav-link" href="index.html#events" style="padding-left: 2rem; font-size: 0.9rem;" data-en="Retreat Sweden" data-sv="Retreat Sverige">Retreat Sverige</a>
+                            </div>
+                        </li>
+                        <!-- Desktop dropdown -->
+                        <li class="nav-item dropdown px-lg-2 d-none d-lg-block">
                             <a class="nav-link dropdown-toggle text-uppercase" href="index.html#services" id="servicesDropdown" role="button" aria-expanded="false">
                                 Services
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
                                 <li><a class="dropdown-item fw-bold" href="remember-your-power.html" data-en="✨ Remember Your Power · 3-month program" data-sv="✨ Remember Your Power · 3-mån program">✨ Remember Your Power</a></li>
+                                <li><a class="dropdown-item" href="index.html#source-connection" data-en="Source Connection Journey · online group" data-sv="Source Connection Journey · grupp online">Source Connection Journey</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="index.html#services">All Services</a></li>
                                 <li><hr class="dropdown-divider"></li>
@@ -242,10 +265,11 @@
                         </li>
                         
                         <!-- Mobile: Collapsible services menu -->
-                        <li class="nav-item px-lg-4 d-lg-none">
+                        <li class="nav-item px-lg-2 d-lg-none">
                             <a class="nav-link text-uppercase" href="index.html#services" data-bs-toggle="collapse" data-bs-target="#mobileServicesMenu" aria-expanded="false">Services ▼</a>
                             <div class="collapse" id="mobileServicesMenu">
                                 <a class="nav-link fw-bold" href="remember-your-power.html" style="padding-left: 2rem; font-size: 0.9rem;" data-en="✨ Remember Your Power · 3-month program" data-sv="✨ Remember Your Power · 3-mån program">✨ Remember Your Power</a>
+                                <a class="nav-link" href="index.html#source-connection" style="padding-left: 2rem; font-size: 0.9rem;" data-en="Source Connection Journey · online group" data-sv="Source Connection Journey · grupp online">Source Connection Journey</a>
                                 <a class="nav-link" href="index.html#life-force-activation" style="padding-left: 2rem; font-size: 0.9rem;">Source Transmission</a>
                                 <a class="nav-link" href="index.html#spinal-energetics" style="padding-left: 2rem; font-size: 0.9rem;">Spinal Energetics</a>
                                 <a class="nav-link" href="index.html#breathwork" style="padding-left: 2rem; font-size: 0.9rem;">Breathwork</a>
@@ -253,12 +277,13 @@
                                 <a class="nav-link" href="index.html#cacao-ceremonies" style="padding-left: 2rem; font-size: 0.9rem;">Cacao Ceremonies</a>
                             </div>
                         </li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html#about" data-en="About" data-sv="Om mig">About</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="collaborations.html" data-en="Collaborations" data-sv="Samarbeten">Collaborations</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html#contact" data-en="Contact" data-sv="Kontakt">Contact</a></li>
+                        <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html#about" data-en="About" data-sv="Om mig">About</a></li>
+                        <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html#testimonials" data-en="Client Love" data-sv="Client Love">Client Love</a></li>
+                        <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="collaborations.html" data-en="Collaborations" data-sv="Samarbeten">Collaborations</a></li>
+                        <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html#contact" data-en="Contact" data-sv="Kontakt">Contact</a></li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item px-lg-4">
+                        <li class="nav-item px-lg-2">
                             <button id="languageToggle" class="btn btn-outline-light">
                                 <i class="fas fa-globe me-2"></i>
                                 <span id="langText">Svenska</span>
@@ -421,10 +446,11 @@
                             <h2 class="section-heading mb-4">
                                 <span class="section-heading-lower"><span data-en="Book Your Session" data-sv="Boka din session">Book Your Session</span></span>
                             </h2>
-                            <p class="mb-4"><span data-en="Allow your body's natural wisdom to guide your healing. Choose between individual sessions or choose our 3-session package for deeper transformation." data-sv="Låt din kropps naturliga visdom vägleda din läkning. Välj mellan individuella sessioner eller välj vårt 3-sessionspaket för djupare transformation.">Allow your body's natural wisdom to guide your healing. Choose between individual sessions or choose our 3-session package for deeper transformation.</span></p>
+                            <p class="mb-4"><span data-en="Allow your body's natural wisdom to guide your healing. Book a session online, or meet me in person in Norrtälje or Åkersberga." data-sv="Låt din kropps naturliga visdom vägleda din läkning. Boka en session online, eller möt mig på plats i Norrtälje eller Åkersberga.">Allow your body's natural wisdom to guide your healing. Book a session online, or meet me in person in Norrtälje or Åkersberga.</span></p>
                             <div class="d-flex justify-content-center gap-3 flex-wrap">
-                                <a class="btn btn-primary btn-lg" href="https://peach.nu/activities/QWPOUhx6QWuIvJ4lcbDy" target="_blank"><span data-en="Book Single Session" data-sv="Boka enstaka session">Book Single Session</span></a>
-                                <a class="btn btn-outline-primary btn-lg" href="https://peach.nu/activities/eFjbw7LFYKjIsxR8hpx8" target="_blank"><span data-en="3-Session Package" data-sv="3-sessionspaket">3-Session Package</span></a>
+                                <a class="btn btn-primary btn-lg" href="https://peach.nu/activities/QWPOUhx6QWuIvJ4lcbDy" target="_blank"><span data-en="Book Online Session" data-sv="Boka session online">Book Online Session</span></a>
+                                <a class="btn btn-primary btn-lg" href="https://peach.nu/activities/RfDKL9w10WOmgPM13xFr" target="_blank"><span data-en="Book in Person – Norrtälje" data-sv="Boka på plats – Norrtälje">Book in Person – Norrtälje</span></a>
+                                <a class="btn btn-primary btn-lg" href="https://peach.nu/activities/8i2RfAaqn6Fa7WCOrXKs" target="_blank"><span data-en="Book in Person – Åkersberga" data-sv="Boka på plats – Åkersberga">Book in Person – Åkersberga</span></a>
                                 <a class="btn btn-outline-secondary btn-lg" href="index.html#contact"><span data-en="Contact Us" data-sv="Kontakta oss">Contact Us</span></a>
                             </div>
                         </div>

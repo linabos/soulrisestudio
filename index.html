@@ -44,6 +44,13 @@
             }
         }
 
+        /* Let clients click straight to a different service in the booking widget
+           without first having to deselect the one they'd already chosen. */
+        #sb_widget [role="button"][aria-disabled="true"]:has(h3) {
+            pointer-events: auto !important;
+            cursor: pointer !important;
+        }
+
         /* Mobile dropdown styling - remove any conflicting styles */
         @media (max-width: 991.98px) {
             .dropdown-menu {
@@ -123,92 +130,6 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Add same spacing between CTA heading lines */
-        .cta .section-heading .section-heading-upper {
-            margin-bottom: 1.5rem;
-        }
-
-        /* Green background for Life Force Activation section - full width */
-        #life-force-activation {
-            position: relative;
-        }
-
-        #life-force-activation::before {
-            content: "";
-            position: absolute;
-            top: -50px;
-            left: 0;
-            width: 100%;
-            height: calc(100% + 50px);
-            background-color: #6b7c5d;
-            z-index: -1;
-        }
-
-        /* Brown background for Spinal Energetics section - extends upward */
-        #spinal-energetics {
-            position: relative;
-        }
-
-        #spinal-energetics::before {
-            content: "";
-            position: absolute;
-            top: -50px;
-            left: 0;
-            width: 100%;
-            height: calc(100% + 50px);
-            background-color: #8B7355;
-            z-index: -1;
-        }
-
-        /* Green background for Breathwork section - extends upward */
-        #breathwork {
-            position: relative;
-        }
-
-        #breathwork::before {
-            content: "";
-            position: absolute;
-            top: -50px;
-            left: 0;
-            width: 100%;
-            height: calc(100% + 50px);
-            background-color: #6b7c5d;
-            z-index: -1;
-        }
-
-        /* Brown background for Reiki Healing section - extends upward */
-        #reiki-healing {
-            position: relative;
-        }
-
-        #reiki-healing::before {
-            content: "";
-            position: absolute;
-            top: -50px;
-            left: 0;
-            width: 100%;
-            height: calc(100% + 50px);
-            background-color: #8B7355;
-            z-index: -1;
-        }
-
-        /* Green background for Cacao Ceremonies section - extends upward */
-        #cacao-ceremonies {
-            position: relative;
-        }
-
-        #cacao-ceremonies::before {
-            content: "";
-            position: absolute;
-            top: -50px;
-            left: 0;
-            width: 100%;
-            height: calc(100% + 50px);
-            background-color: #6b7c5d;
-            z-index: -1;
-        }
-
-
         /* Background color for home section */
         #home {
             background-color: #a69073;
@@ -252,129 +173,11 @@
             z-index: 1030 !important;
         }
 
-        /* Full background for contact section */
-        #contact {
-            position: relative;
-            margin-top: -3rem;
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-            margin-bottom: 0;
-        }
-
-        #contact::before {
-            content: "";
-            position: absolute;
-            top: -50px;
-            left: 0;
-            width: 100%;
-            height: calc(100% + 50px);
-            background-color: #F0E6D2;
-            z-index: -1;
-        }
-
-        /* Connect CTA section to green section above */
-        .cta {
-            position: relative;
-            margin-top: -5rem;
-            padding-top: 7rem;
-        }
-
-        .cta::before {
-            content: "";
-            position: absolute;
-            top: -50px;
-            left: 0;
-            width: 100%;
-            height: calc(100% + 50px);
-            background-color: #e6a756;
-            z-index: -1;
-        }
-
-        /* Header color backgrounds for Life Force Activation, Spinal Energetics and Reiki Healing */
-        #life-force-activation::before,
-        #spinal-energetics::before,
-        #reiki-healing::before {
-            background-color: #2F170F !important;
-            display: block !important;
-        }
-
-        /* Same dark brown as the services section background */
-        #breathwork::before,
-        #cacao-ceremonies::before {
-            background-color: #2F170F !important;
-            /* Matches #services so the dividers read as breathing room */
-        }
-
-        /* Breathing room between the service images */
-        #life-force-activation,
-        #spinal-energetics,
-        #breathwork,
-        #reiki-healing {
-            padding-bottom: 3rem;
-        }
-
-        /* Last one sits flush against the section below */
-        #cacao-ceremonies {
-            padding-bottom: 0;
-        }
-
-        /* Spinal Energetics text color same as Soulrise Studio */
-        #spinal-energetics .section-heading-lower {
-            color: #8B4513 !important;
-            /* Same as text-faded/Soulrise Studio */
-        }
-
-        /* Reiki Healing text color same as Soulrise Studio */
-        #reiki-healing .section-heading-lower {
-            color: #8B4513 !important;
-            /* Same as text-faded/Soulrise Studio */
-        }
-
-        /* Life Force Activation text color same as Spinal Energetics */
-        #life-force-activation .section-heading-upper,
-        #life-force-activation .section-heading-lower {
-            color: #8B4513 !important;
-            /* Same as text-faded/Soulrise Studio */
-        }
-
-        /* Breathwork text color to header color */
-        #breathwork .section-heading-lower {
-            color: #F0E6D2 !important;
-            /* Header background color */
-        }
-
-        /* Cacao Ceremonies text color to header color */
-        #cacao-ceremonies .section-heading-lower {
-            color: #F0E6D2 !important;
-            /* Header background color */
-        }
-
         /* Sticky navigation only */
         #mainNav {
             position: sticky !important;
             top: 0 !important;
             z-index: 1000 !important;
-        }
-
-        /* Service section headings - force smaller size and same font */
-        #life-force-activation h3,
-        #spinal-energetics h3,
-        #breathwork h3,
-        #reiki-healing h3,
-        #cacao-ceremonies h3 {
-            font-size: 1.5rem !important;
-            font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-            text-transform: none !important;
-        }
-
-        #life-force-activation h3 span,
-        #spinal-energetics h3 span,
-        #breathwork h3 span,
-        #reiki-healing h3 span,
-        #cacao-ceremonies h3 span {
-            font-size: 1.5rem !important;
-            font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-            text-transform: none !important;
         }
 
         /* Mobile navbar brand visibility */
@@ -407,125 +210,6 @@
 
         /* Mobile layout for services - convert full-width sections to standard layout */
         @media (max-width: 768px) {
-
-            /* Convert all full-width service sections to mobile layout - force zero margins */
-            #life-force-activation.mb-5,
-            #spinal-energetics.mb-5,
-            #breathwork.mb-5,
-            #reiki-healing.mb-5,
-            #cacao-ceremonies.mb-5 {
-                margin-bottom: 0 !important;
-                margin-top: 0 !important;
-                position: static !important;
-                padding: 0 15px !important;
-            }
-
-            /* Reset background styling for mobile */
-            #life-force-activation::before,
-            #spinal-energetics::before,
-            #breathwork::before,
-            #reiki-healing::before,
-            #cacao-ceremonies::before {
-                display: none !important;
-            }
-
-            #life-force-activation .w-100,
-            #spinal-energetics .w-100,
-            #breathwork .w-100,
-            #reiki-healing .w-100,
-            #cacao-ceremonies .w-100 {
-                position: static !important;
-                width: 100% !important;
-                margin-bottom: 0 !important;
-                margin-top: 0 !important;
-            }
-
-            #life-force-activation img,
-            #spinal-energetics img,
-            #breathwork img,
-            #reiki-healing img,
-            #cacao-ceremonies img {
-                height: 200px !important;
-                width: 100% !important;
-                border-radius: 0.5rem !important;
-                object-fit: cover !important;
-            }
-
-            /* Hide title overlays on mobile */
-            #breathwork .position-absolute:first-of-type,
-            #cacao-ceremonies .position-absolute:first-of-type {
-                display: none !important;
-            }
-
-            #cacao-ceremonies>.d-block {
-                margin-bottom: 0 !important;
-            }
-
-            #breathwork>.d-block.d-md-none,
-            #cacao-ceremonies>.d-block.d-md-none {
-                margin-bottom: 0 !important;
-            }
-
-            /* Hide desktop title overlays on mobile */
-            #breathwork .position-absolute:nth-of-type(1),
-            #cacao-ceremonies .position-absolute:nth-of-type(1) {
-                display: none !important;
-            }
-
-            /* Convert text overlays to normal content below image */
-            #life-force-activation .position-absolute:last-of-type,
-            #spinal-energetics .position-absolute:last-of-type,
-            #breathwork .position-absolute:last-of-type,
-            #reiki-healing .position-absolute:last-of-type,
-            #cacao-ceremonies .position-absolute:last-of-type {
-                position: static !important;
-                transform: none !important;
-                margin-top: 0 !important;
-                top: auto !important;
-                left: auto !important;
-                width: 100% !important;
-            }
-
-            /* Style the mobile content containers */
-            #life-force-activation .position-absolute:last-of-type .container,
-            #spinal-energetics .position-absolute:last-of-type .container,
-            #breathwork .position-absolute:last-of-type .container,
-            #reiki-healing .position-absolute:last-of-type .container,
-            #cacao-ceremonies .position-absolute:last-of-type .container {
-                padding: 0 !important;
-            }
-
-            /* The container padding above normally cancels Bootstrap's negative
-               row margins. With it zeroed, the rows stuck 12px out on each side
-               and made the whole page draggable sideways. */
-            #life-force-activation .row,
-            #spinal-energetics .row,
-            #breathwork .row,
-            #reiki-healing .row,
-            #cacao-ceremonies .row {
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-            }
-
-            #life-force-activation .position-absolute:last-of-type .col-lg-8,
-            #spinal-energetics .position-absolute:last-of-type .col-lg-8,
-            #breathwork .position-absolute:last-of-type .col-lg-8,
-            #reiki-healing .position-absolute:last-of-type .col-lg-8,
-            #cacao-ceremonies .position-absolute:last-of-type .col-lg-8 {
-                max-width: 100% !important;
-            }
-
-            #life-force-activation .position-absolute:last-of-type .p-5,
-            #spinal-energetics .position-absolute:last-of-type .p-5,
-            #breathwork .position-absolute:last-of-type .p-5,
-            #reiki-healing .position-absolute:last-of-type .p-5,
-            #cacao-ceremonies .position-absolute:last-of-type .p-5 {
-                background-color: #F0E6D2 !important;
-                margin-top: -1.5rem !important;
-                margin-bottom: 0 !important;
-                padding: 1rem 1.5rem 0.5rem 1.5rem !important;
-                border-radius: 0.5rem !important;
-            }
 
             /* Mobile styling for About section */
             #about .text-center {
@@ -573,67 +257,6 @@
                 margin-bottom: 0.5rem !important;
                 margin-top: -2rem !important;
             }
-
-            #services {
-                padding-top: 0 !important;
-                padding-bottom: 0.5rem !important;
-                margin-top: -3rem !important;
-            }
-
-            #services .mb-5 {
-                margin-bottom: 0 !important;
-                margin-top: -1rem !important;
-            }
-
-            #life-force-activation,
-            #spinal-energetics,
-            #breathwork,
-            #reiki-healing,
-            #cacao-ceremonies {
-                margin-bottom: 0 !important;
-                margin-top: 0 !important;
-            }
-
-            #life-force-activation .position-absolute:last-of-type .p-5,
-            #spinal-energetics .position-absolute:last-of-type .p-5,
-            #breathwork .position-absolute:last-of-type .p-5,
-            #reiki-healing .position-absolute:last-of-type .p-5,
-            #cacao-ceremonies .position-absolute:last-of-type .p-5 {
-                padding-bottom: 0.5rem !important;
-                padding-top: 1rem !important;
-                margin-top: -0.5rem !important;
-                margin-bottom: 0 !important;
-            }
-
-            #life-force-activation .d-flex.flex-wrap,
-            #spinal-energetics .d-flex.flex-wrap,
-            #breathwork .d-flex.flex-wrap,
-            #reiki-healing .d-flex.flex-wrap,
-            #cacao-ceremonies .d-flex.flex-wrap {
-                margin-bottom: 0 !important;
-            }
-
-            #life-force-activation .w-100,
-            #spinal-energetics .w-100,
-            #breathwork .w-100,
-            #reiki-healing .w-100,
-            #cacao-ceremonies .w-100 {
-                margin-bottom: 0 !important;
-            }
-
-            #breathwork>.d-block.d-md-none,
-            #cacao-ceremonies>.d-block.d-md-none {
-                margin-top: 0 !important;
-                margin-bottom: 0 !important;
-                padding-top: 0 !important;
-            }
-
-            #breathwork>.d-block.d-md-none .section-heading,
-            #cacao-ceremonies>.d-block.d-md-none .section-heading {
-                margin-top: 0.25rem !important;
-                margin-bottom: 0.25rem !important;
-            }
-
 
             #home .intro-text {
                 min-width: 90vw !important;
@@ -683,32 +306,6 @@
 
 
 
-            /* Make service headings smaller on mobile */
-            #spinal-energetics h3,
-            #breathwork h3,
-            #reiki-healing h3,
-            #cacao-ceremonies h3 {
-                font-size: 1.8rem !important;
-                margin-bottom: 0.5rem !important;
-                margin-top: 0.5rem !important;
-                line-height: 1.2 !important;
-            }
-
-            #spinal-energetics h3 span,
-            #breathwork h3 span,
-            #reiki-healing h3 span,
-            #cacao-ceremonies h3 span {
-                font-size: 1.8rem !important;
-            }
-
-            /* Make sure line breaks work on mobile for Source Transmission */
-            #life-force-activation h3 .d-md-none {
-                line-height: 1.3 !important;
-                display: inline-block !important;
-                white-space: normal !important;
-                text-align: center !important;
-                width: 100% !important;
-            }
 
 
 
@@ -930,17 +527,19 @@
                 <div class="intro-text text-center p-5 rounded"
                     style="background-color: rgba(240, 230, 210, 0.9); max-width: 800px;">
                     <h2 class="section-heading mb-4">
-                        <span class="section-heading-lower" id="hero-title">Your Journey Awaits</span>
+                        <span class="section-heading-lower" id="hero-title" style="font-size: 2.2rem;"
+                            data-en="Come Home to Yourself" data-sv="Kom hem till dig själv">Kom hem till dig
+                            själv</span>
                     </h2>
                     <p class="mb-3"
-                        data-en="Feel the whisper of your soul calling you home to yourself. There's a light within you waiting to shine, a vibrant energy longing to flow freely. It's about remembering who you truly are."
-                        data-sv="Känn hur din själ viskar och leder dig hem till dig själv. Det finns ett ljus inom dig som vill skina, en levande energi som längtar efter att flöda fritt. Det handlar om att minnas ditt sanna jag.">
-                        Feel the whisper of your soul calling you home to yourself. There's a light within you waiting
-                        to shine, a vibrant energy longing to flow freely. It's about remembering who you truly are.</p>
+                        data-en="Here you get to land, exactly as you are. A moment for you, where your energy gets to flow freely, in person or online."
+                        data-sv="Här får du landa, precis som du är. En stund för dig, där din energi får flöda fritt, på plats eller online.">
+                        Här får du landa, precis som du är. En stund för dig, där din energi får flöda fritt, på plats
+                        eller online.</p>
                     <p class="mb-3 fw-bold" style="font-size: 1.15rem; color: #6b7c5d;"
                         data-en="More calm. More presence. More spark and flow in body and life."
-                        data-sv="Mer lugn. Mer närvaro. Mer pirr och flow i kroppen och livet.">
-                        More calm. More presence. More spark and flow in body and life.</p>
+                        data-sv="Mer lugn. Mer närvaro. Mer pirr och flow i kroppen och i livet.">
+                        Mer lugn. Mer närvaro. Mer pirr och flow i kroppen och i livet.</p>
                     <div class="intro-button mx-auto"><a class="btn btn-primary btn-lg"
                             href="#book-online"><span
                                 data-en="Book Your Free Call" data-sv="Boka ditt gratis samtal">Book
@@ -952,7 +551,7 @@
 
     <!-- Book Online Widget Section -->
     <section class="page-section" id="book-online"
-        style="padding: 2rem 0 4rem 0; background-color: #F0E6D2; margin-top: 0;">
+        style="padding: 2rem 0 4rem 0; background-color: #F0E6D2; margin-top: 0; margin-bottom: 0;">
         <div class="container">
             <div class="text-center mb-4">
                 <h2 class="section-heading">
@@ -1034,61 +633,81 @@
                     new MutationObserver(() => hideSelectServiceHeading(widgetContainer))
                         .observe(widgetContainer, { childList: true, subtree: true, characterData: true });
 
-                    // Hide the back-arrow button at the top of each step.
-                    function hideBackArrow(root) {
-                        const backButton = root.querySelector('button');
-                        if (backButton) backButton.style.display = 'none';
+                    // Hide the back-arrow only on the "Select service" step (nothing useful to go back
+                    // to there) — keep it visible/usable on later steps like picking a date/time, so
+                    // clients can change their service choice.
+                    function isOnServiceStep(root) {
+                        return !!root.querySelector('[role="button"] h3');
                     }
-                    new MutationObserver(() => hideBackArrow(widgetContainer))
+                    function updateBackArrow(root) {
+                        const backButton = root.querySelector('button');
+                        if (backButton) backButton.style.display = isOnServiceStep(root) ? 'none' : '';
+                    }
+                    new MutationObserver(() => updateBackArrow(widgetContainer))
                         .observe(widgetContainer, { childList: true, subtree: true });
+
+                    // Remember which service was selected so we can remind the client of it
+                    // once they move on to picking a date and time.
+                    let selectedServiceName = null;
+                    function captureSelectedService(root) {
+                        const selectedCard = root.querySelector('[role="button"][aria-disabled="false"] h3');
+                        if (selectedCard) selectedServiceName = selectedCard.textContent.trim();
+                    }
+                    function isOnDateStep(root) {
+                        const dayCells = Array.from(root.querySelectorAll('[role="button"]')).filter((el) =>
+                            /^\d{1,2}$/.test(el.textContent.trim())
+                        );
+                        return dayCells.length > 20;
+                    }
+                    function updateSelectedServiceBanner(root) {
+                        captureSelectedService(root);
+                        let banner = document.getElementById('sb-selected-service-banner');
+                        if (isOnDateStep(root) && selectedServiceName) {
+                            if (!banner) {
+                                banner = document.createElement('div');
+                                banner.id = 'sb-selected-service-banner';
+                                banner.style.cssText = 'background:#F0E6D2;border:1px solid #E7DCC7;border-radius:10px;padding:0.7rem 1rem;margin-bottom:1rem;font-weight:600;color:#2F170F;text-align:center;';
+                                root.insertBefore(banner, root.firstChild);
+                            }
+                            const newText = 'Vald tjänst: ' + selectedServiceName;
+                            if (banner.textContent !== newText) banner.textContent = newText;
+                        } else if (banner) {
+                            banner.remove();
+                        }
+                    }
+                    new MutationObserver(() => updateSelectedServiceBanner(widgetContainer))
+                        .observe(widgetContainer, { childList: true, subtree: true, characterData: true });
+
+                    // Let clients switch services directly: clicking a different (greyed-out) service
+                    // card first deselects the currently chosen one, then selects the new one.
+                    widgetContainer.addEventListener('click', function (e) {
+                        const card = e.target.closest('[role="button"]');
+                        if (!card || !card.querySelector('h3')) return;
+                        if (card.getAttribute('aria-disabled') !== 'true') return;
+
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        const cards = Array.from(widgetContainer.querySelectorAll('[role="button"]')).filter((c) =>
+                            c.querySelector('h3')
+                        );
+                        const selected = cards.find((c) => c.getAttribute('aria-disabled') === 'false');
+                        if (selected) selected.click();
+
+                        setTimeout(() => card.click(), 150);
+                    }, true);
+
+                    // Hide the "My personal data" link — not relevant for guests booking here.
+                    function hidePersonalDataLink(root) {
+                        const link = Array.from(root.querySelectorAll('a')).find((a) =>
+                            a.textContent.trim() === 'My personal data'
+                        );
+                        if (link) (link.closest('div') || link).style.display = 'none';
+                    }
+                    new MutationObserver(() => hidePersonalDataLink(widgetContainer))
+                        .observe(widgetContainer, { childList: true, subtree: true, characterData: true });
                 });
             </script>
-        </div>
-    </section>
-
-    <!-- Flagship Program: Remember Your Power -->
-    <section class="page-section" id="program" style="padding: 0; background-color: #2F170F; margin-top: 0;">
-        <div class="container-fluid p-0">
-            <div class="row g-0 align-items-stretch">
-                <!-- Image -->
-                <div class="col-lg-6">
-                    <img src="assets/img/hem-till-dig-sjalv.jpg" class="w-100 h-100"
-                        style="object-fit: cover; object-position: center 25%; min-height: 380px;"
-                        alt="Remember Your Power – onlineprogram med Lina" />
-                </div>
-                <!-- Text -->
-                <div class="col-lg-6 d-flex align-items-center">
-                    <div class="p-4 p-lg-5" style="color: #F0E6D2;">
-                        <span
-                            style="display:inline-block;text-transform:uppercase;letter-spacing:2px;font-size:0.9rem;color:#e6a756;margin-bottom:0.75rem;"
-                            data-en="3-month online program" data-sv="3-månaders onlineprogram">3-month online
-                            program</span>
-                        <h2 class="section-heading mb-3" style="color:#F0E6D2;">
-                            <span class="section-heading-lower" data-en="Remember Your Power"
-                                data-sv="Remember Your Power">Remember Your Power</span>
-                        </h2>
-                        <p class="mb-4" style="font-size:1.15rem;color:#F0E6D2;"
-                            data-en="A three-month journey back to calm, presence and your own power. A live online program in a small group."
-                            data-sv="En tre månaders resa tillbaka till lugn, närvaro och din egen kraft. Ett live-sänt onlineprogram i liten grupp.">
-                            A three-month journey back to calm, presence and your own power. A live online program in a
-                            small group.</p>
-                        <ul class="list-unstyled mb-4" style="color:#F0E6D2;">
-                            <li class="mb-2">🗓️ <span data-en="12 weeks · dates coming soon"
-                                    data-sv="12 veckor · datum kommer snart">12 weeks · dates coming soon</span></li>
-                            <li class="mb-2">💻 <span data-en="Online via Zoom · small group"
-                                    data-sv="Online via Zoom · liten grupp">Online via Zoom · small group</span>
-                            </li>
-                            <li class="mb-0">🌸 <span data-en="Launch price 6 900 kr (reg. 11 900 kr)"
-                                    data-sv="Lanseringspris 6 900 kr (ord. 11 900 kr)">Launch price 6 900 kr (reg. 11 900
-                                    kr)</span></li>
-                        </ul>
-                        <a href="remember-your-power.html" class="btn btn-primary btn-lg">
-                            <span data-en="Read more &amp; secure your spot" data-sv="Läs mer &amp; säkra din plats">Read
-                                more &amp; secure your spot</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -1099,41 +718,71 @@
             <div class="row g-0 align-items-stretch">
                 <!-- Image (right on desktop, top on mobile) -->
                 <div class="col-lg-6 order-lg-2">
-                    <img src="assets/img/about.jpg" class="w-100 h-100"
-                        style="object-fit: cover; object-position: center; min-height: 380px;"
+                    <img src="assets/img/about.jpg" class="w-100"
+                        style="object-fit: cover; object-position: center; height: 320px;"
                         alt="Source Connection Journey – gruppresa online med Lina" />
                 </div>
                 <!-- Text -->
                 <div class="col-lg-6 order-lg-1 d-flex align-items-center">
-                    <div class="p-4 p-lg-5" style="color: #F0E6D2;">
-                        <span
-                            style="display:inline-block;text-transform:uppercase;letter-spacing:2px;font-size:0.9rem;color:#e6a756;margin-bottom:0.75rem;"
-                            data-en="Online group journey · 6 sessions"
-                            data-sv="Gruppresa online · 6 tillfällen">Online group journey · 6 sessions</span>
-                        <h2 class="section-heading mb-3" style="color:#F0E6D2;">
-                            <span class="section-heading-lower" data-en="Source Connection Journey"
-                                data-sv="Source Connection Journey">Source Connection Journey</span>
-                        </h2>
-                        <p class="mb-4" style="font-size:1.15rem;color:#F0E6D2;"
+                    <div class="p-4" style="color: #F0E6D2;">
+                        <h3 class="mb-2" style="color:#F0E6D2;font-size:1.6rem;">Source Connection Journey</h3>
+                        <p class="mb-3" style="font-size:1rem;color:#F0E6D2;"
                             data-en="A journey with like-minded souls. Six sessions of energy work, ceremony and sharing, with space for integration in between."
                             data-sv="En resa med likasinnade själar. Sex tillfällen med energiarbete, ceremoni och delning, med utrymme för integrering mellan träffarna.">
-                            A journey with like-minded souls. Six sessions of energy work, ceremony and sharing, with
-                            space for integration in between.</p>
-                        <ul class="list-unstyled mb-4" style="color:#F0E6D2;">
-                            <li class="mb-2">🗓️ <span data-en="6 sessions · starts 20 September"
-                                    data-sv="6 tillfällen · start 20 september">6 sessions · starts 20 September</span>
+                            En resa med likasinnade själar. Sex tillfällen med energiarbete, ceremoni och delning, med
+                            utrymme för integrering mellan träffarna.</p>
+                        <ul class="list-unstyled mb-2" style="color:#F0E6D2; font-size: 0.95rem;">
+                            <li class="mb-1"><span data-en="6 sessions · starts 20 September"
+                                    data-sv="6 tillfällen · start 20 september">6 tillfällen · start 20 september</span>
                             </li>
-                            <li class="mb-2">💻 <span data-en="Online via Zoom · safe small group"
-                                    data-sv="Online via Zoom · trygg liten grupp">Online via Zoom · safe small
-                                    group</span></li>
-                            <li class="mb-0">🌸 <span data-en="2 200 kr" data-sv="2 200 kr">2 200 kr</span></li>
+                            <li class="mb-1"><span data-en="Online via Zoom · safe small group"
+                                    data-sv="Online via Zoom · trygg liten grupp">Online via Zoom · trygg liten
+                                    grupp</span></li>
+                            <li class="mb-0"><span data-en="2 200 kr" data-sv="2 200 kr">2 200 kr</span></li>
                         </ul>
-                        <p class="small mb-4" style="color:#a69073;"
-                            data-en="Every other Sunday at 3 PM · 20/9, 4/10, 18/10, 1/11, 15/11, 29/11"
-                            data-sv="Varannan söndag kl. 15.00 · 20/9, 4/10, 18/10, 1/11, 15/11, 29/11">Every other
-                            Sunday at 3 PM · 20/9, 4/10, 18/10, 1/11, 15/11, 29/11</p>
-                        <a href="#book-online" class="btn btn-primary btn-lg">
-                            <span data-en="Join Next Group" data-sv="Gå med i nästa grupp">Join Next Group</span>
+                        <a href="#book-online" class="btn btn-primary">
+                            <span data-en="Join Next Group" data-sv="Gå med i nästa grupp">Gå med i nästa grupp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flagship Program: Remember Your Power -->
+    <section class="page-section" id="program"
+        style="padding: 0; background-color: #2F170F; margin-top: 0; margin-bottom: 0;">
+        <div class="container-fluid p-0">
+            <div class="row g-0 align-items-stretch">
+                <!-- Image -->
+                <div class="col-lg-6">
+                    <img src="assets/img/remember-your-power-portrait.jpg" class="w-100"
+                        style="object-fit: cover; object-position: center 18%; height: 320px;"
+                        alt="Remember Your Power – onlineprogram med Lina" />
+                </div>
+                <!-- Text -->
+                <div class="col-lg-6 d-flex align-items-center">
+                    <div class="p-4" style="color: #F0E6D2;">
+                        <h3 class="mb-2" style="color:#F0E6D2;font-size:1.6rem;">Remember Your Power</h3>
+                        <p class="mb-3" style="font-size:1rem;color:#F0E6D2;"
+                            data-en="A three-month journey back to calm, presence and your own power. A live online program in a small group."
+                            data-sv="En tre månaders resa tillbaka till lugn, närvaro och din egen kraft. Ett live-sänt onlineprogram i liten grupp.">
+                            En tre månaders resa tillbaka till lugn, närvaro och din egen kraft. Ett live-sänt
+                            onlineprogram i liten grupp.</p>
+                        <ul class="list-unstyled mb-3" style="color:#F0E6D2; font-size: 0.95rem;">
+                            <li class="mb-1"><span data-en="12 weeks · dates coming soon"
+                                    data-sv="12 veckor · datum kommer snart">12 veckor · datum kommer snart</span>
+                            </li>
+                            <li class="mb-1"><span data-en="Online via Zoom · small group"
+                                    data-sv="Online via Zoom · liten grupp">Online via Zoom · liten grupp</span>
+                            </li>
+                            <li class="mb-0"><span data-en="Launch price 6 900 kr (reg. 11 900 kr)"
+                                    data-sv="Lanseringspris 6 900 kr (ord. 11 900 kr)">Lanseringspris 6 900 kr (ord.
+                                    11 900 kr)</span></li>
+                        </ul>
+                        <a href="remember-your-power.html" class="btn btn-primary">
+                            <span data-en="Read more &amp; secure your spot" data-sv="Läs mer &amp; säkra din plats">Läs
+                                mer &amp; säkra din plats</span>
                         </a>
                     </div>
                 </div>
@@ -1143,338 +792,169 @@
 
     <!-- Weekly Group Classes Section -->
     <section class="page-section" id="weekly-classes"
-        style="padding: 5rem 0; background-color: #6b7c5d; margin-bottom: 0;">
+        style="padding: 2.5rem 0 3.5rem 0; background-color: #F0E6D2; margin-top: 0; margin-bottom: 0;">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-heading" style="color: white;">
+                <h2 class="section-heading" style="color: #2F170F;">
                     <span class="section-heading-lower" data-en="Online Group Sessions"
                         data-sv="Gruppsessioner online">Online Group Sessions</span>
                 </h2>
-                <p style="font-size: 1.1rem; color: #F0E6D2;" data-en="Drop in to a single session"
-                    data-sv="Hoppa in på en enstaka session">Drop in to a single session</p>
             </div>
 
-            <div class="row g-4 justify-content-center">
-                <!-- Life Force Activation - Weekend -->
-                <div class="col-lg-3">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-header text-center" style="background-color: #a69073; color: white;">
-                            <h5 class="mb-0" data-en="Life Force Activation" data-sv="Life Force Activation">Life Force
-                                Activation</h5>
-                            <small data-en="Weekend & Evening Sessions" data-sv="Helg- & Kvällssessioner">Weekend &
-                                Evening Sessions</small>
-                        </div>
-                        <div class="card-body text-center p-4">
-                            <div class="display-6 fw-bold text-primary mb-2">1.5h</div>
-                            <div class="fw-bold text-success mb-3" style="font-size: 1.3rem;">390 kr</div>
-                            <ul class="list-unstyled text-start mb-4">
-                                <li class="mb-2">✓ <span data-en="90 min session" data-sv="90 min session">90 min
-                                        session</span></li>
-                                <li class="mb-2">✓ <span data-en="60 min activation" data-sv="60 min aktivering">60 min
-                                        activation</span></li>
-                                <li class="mb-2">✓ <span data-en="Intro + sharing" data-sv="Intro + delning">Intro +
-                                        sharing</span></li>
-                                <li class="mb-2">✓ <span data-en="Online via Zoom" data-sv="Online via Zoom">Online via
-                                        Zoom</span></li>
-                                <li class="mb-2">✓ <span data-en="Drop-in friendly" data-sv="Drop-in vänligt">Drop-in
-                                        friendly</span></li>
-                            </ul>
-                        </div>
-                        <div class="card-footer border-0 bg-transparent text-center">
-                            <a href="https://peach.nu/activities/igGZ8M3A6qrxdqiRwrid" class="btn btn-primary btn-lg"
-                                target="_blank">
-                                <span data-en="Book" data-sv="Boka">Book</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Life Force Activation - Lunch -->
-                <div class="col-lg-3">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-header text-center" style="background-color: #a69073; color: white;">
-                            <h5 class="mb-0" data-en="Life Force Activation" data-sv="Life Force Activation">Life Force
-                                Activation</h5>
-                            <small data-en="Lunch Sessions" data-sv="Lunchsessioner">Lunch Sessions</small>
-                        </div>
-                        <div class="card-body text-center p-4">
-                            <div class="display-6 fw-bold text-primary mb-2">1h</div>
-                            <div class="fw-bold text-success mb-3" style="font-size: 1.3rem;">300 kr</div>
-                            <ul class="list-unstyled text-start mb-4">
-                                <li class="mb-2">✓ <span data-en="1 hour session" data-sv="1 timmes session">1 hour
-                                        session</span></li>
-                                <li class="mb-2">✓ <span data-en="45 min activation" data-sv="45 min aktivering">45 min
-                                        activation</span></li>
-                                <li class="mb-2">✓ <span data-en="No intro - for experienced"
-                                        data-sv="Ingen intro - för de som testat tidigare">No intro - for
-                                        experienced</span></li>
-                                <li class="mb-2">✓ <span data-en="Sharing at the end"
-                                        data-sv="Delning på slutet">Sharing at the end</span></li>
-                                <li class="mb-2">✓ <span data-en="Online via Zoom" data-sv="Online via Zoom">Online via
-                                        Zoom</span></li>
-                                <li class="mb-2">✓ <span data-en="Drop-in friendly" data-sv="Drop-in vänligt">Drop-in
-                                        friendly</span></li>
-                            </ul>
-                        </div>
-                        <div class="card-footer border-0 bg-transparent text-center">
-                            <a href="https://peach.nu/activities/d7uHMPGFanmZWAzIP6BN" class="btn btn-primary btn-lg"
-                                target="_blank">
-                                <span data-en="Book" data-sv="Boka">Book</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="text-center mx-auto" style="max-width: 480px;">
+                <h5 class="mb-2" style="font-size: 1.4rem; font-weight: 400; color: #2F170F;">Source Transmission -
+                    Life Force Activation</h5>
+                <p class="mb-3" style="font-size: 0.95rem; color: #5a4a3a;"
+                    data-en="90 min · intro + activation + sharing · online via Zoom · drop-in friendly"
+                    data-sv="90 min · intro + aktivering + delning · online via Zoom · drop-in vänligt">90
+                    min · intro + aktivering + delning · online via Zoom · drop-in vänligt</p>
+                <div class="fw-bold mb-3" style="font-size: 1.3rem; color: #6b7c5d;">390 kr</div>
+                <a href="#book-online" class="btn btn-primary">
+                    <span data-en="Book" data-sv="Boka">Boka</span>
+                </a>
             </div>
+
+            <!-- Life Force Activation - Lunch (hidden until Lina activates it again) -->
+            <!--
+            <div class="text-center mx-auto" style="max-width: 480px;">
+                <h5 class="mb-2" style="font-size: 1.4rem; font-weight: 400; color: #2F170F;">Life Force Activation
+                </h5>
+                <p class="mb-1" style="font-size: 0.85rem; color:#a69073;"
+                    data-en="Lunch Sessions" data-sv="Lunchsessioner">Lunch Sessions</p>
+                <p class="mb-3" style="font-size: 0.95rem; color: #5a4a3a;"
+                    data-en="1 hour · no intro, for experienced · sharing at the end · drop-in friendly"
+                    data-sv="1 timme · ingen intro, för dig som testat tidigare · delning på slutet · drop-in vänligt">
+                    1 timme · ingen intro, för dig som testat tidigare · delning på slutet · drop-in
+                    vänligt</p>
+                <div class="fw-bold mb-3" style="font-size: 1.3rem; color: #6b7c5d;">300 kr</div>
+                <a href="#book-online" class="btn btn-primary">
+                    <span data-en="Book" data-sv="Boka">Boka</span>
+                </a>
+            </div>
+            -->
         </div>
     </section>
 
     <!-- Packages Section -->
-    <section class="page-section" id="packages" style="padding: 0 0 2rem 0; background-color: #F0E6D2;">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-heading">
-                    <span class="section-heading-lower" data-en="Want to go deeper? 1:1 with me"
-                        data-sv="Vill du gå djupare? 1:1 med mig">Want to go deeper? 1:1 with me</span>
-                </h2>
-            </div>
-
-            <div class="row justify-content-center align-items-stretch shadow-lg rounded-3 overflow-hidden"
-                style="max-width: 960px; margin: 0 auto; background:#ffffff;">
-                <!-- 1:1 Soul Remembrance Journey -->
-                <div class="col-lg-5 p-0">
-                    <img src="assets/img/lina-profile.jpg" class="w-100 h-100"
-                        style="object-fit: cover; object-position: center; min-height: 360px;"
-                        alt="Lina – 1:1 Soul Remembrance Journey" />
-                </div>
-                <div class="col-lg-7">
-                    <div class="p-4 p-lg-5">
-                        <span class="badge mb-3"
-                            style="background-color:#a69073; font-size:0.85rem; padding:0.4rem 0.8rem;"
-                            data-en="1:1 · Personal Journey" data-sv="1:1 · Personlig resa">1:1 · Personal Journey</span>
-                        <h3 class="mb-2" style="color:#6b7c5d; font-size:1.8rem; font-weight:400;">Soul Remembrance
-                            Journey</h3>
-                        <p class="mb-4"
-                            data-en="A deeply personal journey, just you and me, over 8–12 weeks, with me by your side the whole way."
-                            data-sv="En djupt personlig resa, bara du och jag, under 8–12 veckor, där jag finns vid din sida hela vägen.">
-                            A deeply personal journey, just you and me, over 8–12 weeks, with me by your side the
-                            whole way.</p>
-                        <ul class="list-unstyled mb-4">
-                            <li class="mb-2">✨ <span data-en="6 sessions online (2 hours each)"
-                                    data-sv="6 sessioner online (2 timmar varje)">6 sessions online (2 hours
-                                    each)</span></li>
-                            <li class="mb-2">✨ <span data-en="Personalized journey, multiple modalities"
-                                    data-sv="Personligt upplägg, flera modaliteter">Personalized journey, multiple
-                                    modalities</span></li>
-                            <li class="mb-2">✨ <span data-en="Integration guidance throughout"
-                                    data-sv="Integrationsvägledning hela vägen">Integration guidance throughout</span>
-                            </li>
-                        </ul>
-                        <div class="fw-bold text-success mb-4" style="font-size:1.7rem;">12 900 kr</div>
-                        <a href="https://peach.nu/activities/UZ0zS0p8HeAIvLcj5jf2"
-                            class="btn btn-primary btn-lg" target="_blank">
-                            <span data-en="Learn More &amp; Book" data-sv="Läs mer &amp; boka">Learn More &amp; Book</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="text-center mt-3 mb-1">
-                <p class="text-muted mb-2" data-en="Have a question first?"
-                    data-sv="Har du en fråga först?">Have a question first?</p>
-                <a href="#book-online"
-                    class="btn btn-outline-primary">
-                    <span data-en="Book Free Consultation" data-sv="Boka gratis konsultation">Book Free
-                        Consultation</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- In Person in Sweden: Events + 1:1 Sessions -->
-    <section class="page-section" id="events" style="padding: 4rem 0 3.5rem 0; background-color: #6b7c5d;">
+    <section class="page-section" id="events"
+        style="padding: 3rem 0 3.5rem 0; background-color: #6b7c5d; margin-top: 0; margin-bottom: 0;">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-heading" style="color: white;">
                     <span class="section-heading-lower" data-en="In Person in Sweden"
                         data-sv="På plats i Sverige">In Person in Sweden</span>
                 </h2>
-                <p style="font-size: 1.1rem; color: #F0E6D2;"
-                    data-en="Join me for group sessions, events and private 1:1s"
-                    data-sv="Möt mig för gruppsessioner, events och enskilda 1:1-sessioner">Join me for group
-                    sessions, events and private 1:1s</p>
             </div>
 
-            <h3 class="text-center mb-4"
-                style="color:#F0E6D2; font-size:1.15rem; text-transform:uppercase; letter-spacing:1px; font-weight:600;"
-                data-en="Upcoming Events" data-sv="Kommande Events">Upcoming Events</h3>
             <div class="row justify-content-center g-4">
                 <!-- Event 1: Soul Rise – en halvdag för själen -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-lg overflow-hidden">
-                        <div class="position-relative">
-                            <img src="https://images.peachcreator.com/i/p/media/4m9oLqo4TZAO44ALTS3N.jpg?variation=big"
-                                class="w-100" style="height: 210px; object-fit: cover;"
-                                alt="Soul Rise - en halvdag för själen" />
-                            <div class="position-absolute top-0 start-0 m-3 text-center rounded shadow"
-                                style="background-color: #a69073; color: white; padding: 0.5rem 0.85rem; min-width: 64px;">
-                                <div class="fw-bold" style="font-size: 1rem; line-height: 1.2;" data-en="New"
-                                    data-sv="Nytt">New</div>
-                                <div style="font-size: 0.75rem;" data-en="date TBA" data-sv="datum snart">date TBA
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body d-flex flex-column p-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                        <img src="https://images.peachcreator.com/i/p/media/4m9oLqo4TZAO44ALTS3N.jpg?variation=big"
+                            class="w-100" style="height: 140px; object-fit: cover;"
+                            alt="Soul Rise - en halvdag för själen" />
+                        <div class="card-body d-flex flex-column p-3">
                             <span class="badge mb-2 align-self-start"
-                                style="background-color: #6b7c5d; font-size: 0.8rem; padding: 0.35rem 0.7rem;"
+                                style="background-color: #6b7c5d; font-size: 0.7rem; padding: 0.3rem 0.6rem;"
                                 data-en="Half-Day Retreat" data-sv="Halvdagsretreat">Half-Day Retreat</span>
-                            <h4 class="mb-2" style="color: #6b7c5d; font-size: 1.25rem;">Soul Rise <span
-                                    style="font-weight: 400;" data-en="– a half-day for the soul"
-                                    data-sv="– en halvdag för själen">– en halvdag för själen</span></h4>
-                            <p class="mb-3" style="font-size: 0.9rem;"
-                                data-en="Cacao ceremony, Spinal Energetics &amp; breathing, a restful pause and a Life Force Activation."
-                                data-sv="Kakaoceremoni, Spinal Energetics &amp; andning, en vilsam paus och en Life Force Activation.">
-                                Kakaoceremoni, Spinal Energetics &amp; andning, en vilsam paus och en Life Force
-                                Activation.</p>
-                            <ul class="list-unstyled mb-3" style="font-size: 0.95rem;">
-                                <li class="mb-2">🗓️ <span data-en="New date coming soon"
-                                        data-sv="Nytt datum kommer snart">New date coming soon</span></li>
-                                <li class="mb-2">📍 <span data-en="Holistic House Yoga Studio, Åkersberga"
-                                        data-sv="Holistic House Yogastudio, Åkersberga">Holistic House Yogastudio,
-                                        Åkersberga</span></li>
-                                <li class="mb-2">👥 <span data-en="Max 12 participants"
-                                        data-sv="Max 12 deltagare">Max 12 deltagare</span></li>
-                            </ul>
-                            <div class="mb-3 mt-auto">
-                                <span class="fw-bold text-success" style="font-size: 1.4rem;">1&nbsp;250 kr</span>
+                            <h5 class="mb-1" style="color: #6b7c5d; font-size: 1.05rem; font-weight: 500;">Soul Rise
+                                <span data-en="– a half-day for the soul" data-sv="– en halvdag för själen">– en
+                                    halvdag för själen</span>
+                            </h5>
+                            <p class="mb-2" style="font-size: 0.82rem; color:#8a7863;"
+                                data-en="New date coming soon · Holistic House Yoga Studio, Åkersberga"
+                                data-sv="Nytt datum kommer snart · Holistic House Yogastudio, Åkersberga">Nytt datum
+                                kommer snart · Holistic House Yogastudio, Åkersberga</p>
+                            <div class="fw-bold mb-2 mt-auto" style="font-size: 1.1rem; color: #6b7c5d;">1&nbsp;250 kr
                             </div>
-                            <a href="https://peach.nu/activities/n9Rx3bHdItk1zIuDdWFB" class="btn btn-primary"
+                            <a href="https://peach.nu/activities/n9Rx3bHdItk1zIuDdWFB" class="btn btn-primary btn-sm"
                                 target="_blank">
-                                <span data-en="Book Now" data-sv="Boka nu">Book Now</span>
+                                <span data-en="Book Now" data-sv="Boka nu">Boka nu</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Event 2: Spinal Energetics & Life Force Activation - Norrtälje -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-lg overflow-hidden">
-                        <div class="position-relative">
-                            <img src="https://images.peachcreator.com/i/p/media/YHEpCauRAz0Jhhtcrxe4.jpg?variation=big"
-                                class="w-100" style="height: 210px; object-fit: cover;"
-                                alt="Spinal Energetics & Life Force Activation – Norrtälje" />
-                            <div class="position-absolute top-0 start-0 m-3 text-center rounded shadow"
-                                style="background-color: #a69073; color: white; padding: 0.5rem 0.85rem; min-width: 64px;">
-                                <div class="fw-bold" style="font-size: 1rem; line-height: 1.2;" data-en="New"
-                                    data-sv="Nytt">New</div>
-                                <div style="font-size: 0.75rem;" data-en="date TBA" data-sv="datum snart">date TBA
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body d-flex flex-column p-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                        <img src="https://images.peachcreator.com/i/p/media/YHEpCauRAz0Jhhtcrxe4.jpg?variation=big"
+                            class="w-100" style="height: 140px; object-fit: cover;"
+                            alt="Spinal Energetics & Life Force Activation – Norrtälje" />
+                        <div class="card-body d-flex flex-column p-3">
                             <span class="badge mb-2 align-self-start"
-                                style="background-color: #6b7c5d; font-size: 0.8rem; padding: 0.35rem 0.7rem;"
+                                style="background-color: #6b7c5d; font-size: 0.7rem; padding: 0.3rem 0.6rem;"
                                 data-en="Group Session" data-sv="Gruppsession">Group Session</span>
-                            <h4 class="mb-3" style="color: #6b7c5d; font-size: 1.25rem;">Spinal Energetics &amp; Life
-                                Force Activation</h4>
-                            <ul class="list-unstyled mb-3" style="font-size: 0.95rem;">
-                                <li class="mb-2">🗓️ <span data-en="New date coming soon"
-                                        data-sv="Nytt datum kommer snart">New date coming soon</span>
-                                </li>
-                                <li class="mb-2">📍 <span data-en="Sjötullsgatan 3, Norrtälje"
-                                        data-sv="Sjötullsgatan 3, Norrtälje">Sjötullsgatan 3, Norrtälje</span></li>
-                            </ul>
-                            <div class="mb-3 mt-auto">
-                                <span class="fw-bold text-success" style="font-size: 1.4rem;">500 kr</span>
-                            </div>
-                            <a href="https://peach.nu/activities/UYzYJh9qg5OQbeX7u0RL" class="btn btn-primary"
+                            <h5 class="mb-1" style="color: #6b7c5d; font-size: 1.05rem; font-weight: 500;">Spinal
+                                Energetics &amp; Life Force Activation</h5>
+                            <p class="mb-2" style="font-size: 0.82rem; color:#8a7863;"
+                                data-en="New date coming soon · Sjötullsgatan 3, Norrtälje"
+                                data-sv="Nytt datum kommer snart · Sjötullsgatan 3, Norrtälje">Nytt datum kommer snart
+                                · Sjötullsgatan 3, Norrtälje</p>
+                            <div class="fw-bold mb-2 mt-auto" style="font-size: 1.1rem; color: #6b7c5d;">500 kr</div>
+                            <a href="https://peach.nu/activities/UYzYJh9qg5OQbeX7u0RL" class="btn btn-primary btn-sm"
                                 target="_blank">
-                                <span data-en="Book Now" data-sv="Boka nu">Book Now</span>
+                                <span data-en="Book Now" data-sv="Boka nu">Boka nu</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Event 3: Spinal Energetics & Life Force Activation - Åkersberga -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-lg overflow-hidden">
-                        <div class="position-relative">
-                            <img src="https://images.peachcreator.com/i/p/media/OgM4YOZWZC7M8xm72OJK.png?variation=big"
-                                class="w-100" style="height: 210px; object-fit: cover;"
-                                alt="Spinal Energetics & Life Force Activation – Åkersberga" />
-                            <div class="position-absolute top-0 start-0 m-3 text-center rounded shadow"
-                                style="background-color: #a69073; color: white; padding: 0.5rem 0.85rem; min-width: 64px;">
-                                <div class="fw-bold" style="font-size: 1rem; line-height: 1.2;" data-en="New"
-                                    data-sv="Nytt">New</div>
-                                <div style="font-size: 0.75rem;" data-en="date TBA" data-sv="datum snart">date TBA
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body d-flex flex-column p-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                        <img src="https://images.peachcreator.com/i/p/media/OgM4YOZWZC7M8xm72OJK.png?variation=big"
+                            class="w-100" style="height: 140px; object-fit: cover;"
+                            alt="Spinal Energetics & Life Force Activation – Åkersberga" />
+                        <div class="card-body d-flex flex-column p-3">
                             <span class="badge mb-2 align-self-start"
-                                style="background-color: #6b7c5d; font-size: 0.8rem; padding: 0.35rem 0.7rem;"
+                                style="background-color: #6b7c5d; font-size: 0.7rem; padding: 0.3rem 0.6rem;"
                                 data-en="Group Session" data-sv="Gruppsession">Group Session</span>
-                            <h4 class="mb-3" style="color: #6b7c5d; font-size: 1.25rem;">Spinal Energetics &amp; Life
-                                Force Activation</h4>
-                            <ul class="list-unstyled mb-3" style="font-size: 0.95rem;">
-                                <li class="mb-2">🗓️ <span data-en="New date coming soon"
-                                        data-sv="Nytt datum kommer snart">New date coming soon</span>
-                                </li>
-                                <li class="mb-2">📍 <span data-en="Näsvägen 100, Åkersberga"
-                                        data-sv="Näsvägen 100, Åkersberga">Näsvägen 100, Åkersberga</span></li>
-                            </ul>
-                            <div class="mb-3 mt-auto">
-                                <span class="fw-bold text-success" style="font-size: 1.4rem;">500 kr</span>
-                            </div>
-                            <a href="https://peach.nu/activities/TOmau5ETPNkKYqhSAksS" class="btn btn-primary"
+                            <h5 class="mb-1" style="color: #6b7c5d; font-size: 1.05rem; font-weight: 500;">Spinal
+                                Energetics &amp; Life Force Activation</h5>
+                            <p class="mb-2" style="font-size: 0.82rem; color:#8a7863;"
+                                data-en="New date coming soon · Näsvägen 100, Åkersberga"
+                                data-sv="Nytt datum kommer snart · Näsvägen 100, Åkersberga">Nytt datum kommer snart ·
+                                Näsvägen 100, Åkersberga</p>
+                            <div class="fw-bold mb-2 mt-auto" style="font-size: 1.1rem; color: #6b7c5d;">500 kr</div>
+                            <a href="https://peach.nu/activities/TOmau5ETPNkKYqhSAksS" class="btn btn-primary btn-sm"
                                 target="_blank">
-                                <span data-en="Book Now" data-sv="Boka nu">Book Now</span>
+                                <span data-en="Book Now" data-sv="Boka nu">Boka nu</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Spinal Energetics 1:1 - Norrtälje / Åkersberga -->
-                <div class="col-md-6 col-lg-4" id="one-to-one">
-                    <div class="card h-100 border-0 shadow-lg overflow-hidden">
-                        <div class="position-relative">
-                            <img src="assets/img/spinal-energetics-akersberga.jpg"
-                                class="w-100" style="height: 210px; object-fit: cover;"
-                                alt="Spinal Energetics 1:1 session – Norrtälje / Åkersberga" />
-                            <span class="position-absolute top-0 start-0 m-3 badge shadow"
-                                style="background-color: #a69073; font-size: 0.9rem; padding: 0.5rem 0.85rem;">📍
-                                Norrtälje / Åkersberga</span>
-                        </div>
-                        <div class="card-body d-flex flex-column p-4">
+                <div class="col-md-6 col-lg-3" id="one-to-one">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                        <img src="assets/img/spinal-energetics-akersberga.jpg" class="w-100"
+                            style="height: 140px; object-fit: cover;"
+                            alt="Spinal Energetics 1:1 session – Norrtälje / Åkersberga" />
+                        <div class="card-body d-flex flex-column p-3">
                             <span class="badge mb-2 align-self-start"
-                                style="background-color: #6b7c5d; font-size: 0.8rem; padding: 0.35rem 0.7rem;"
+                                style="background-color: #6b7c5d; font-size: 0.7rem; padding: 0.3rem 0.6rem;"
                                 data-en="Private 1:1" data-sv="Enskild 1:1">Private 1:1</span>
-                            <h4 class="mb-2" style="color: #6b7c5d; font-size: 1.25rem;">Spinal Energetics</h4>
-                            <p class="mb-3" style="font-size: 0.9rem;"
-                                data-en="A deep private session blending Spinal Energetics with my background as a naprapath and breathwork guide."
-                                data-sv="En djupgående enskild session som förenar Spinal Energetics med min bakgrund som naprapat och breathwork-guide.">
-                                En djupgående enskild session som förenar Spinal Energetics med min bakgrund som naprapat
-                                och breathwork-guide.</p>
-                            <ul class="list-unstyled mb-3" style="font-size: 0.95rem;">
-                                <li class="mb-2">⏱️ <span data-en="90 min" data-sv="90 min">90 min</span></li>
-                            </ul>
-                            <div class="mb-3 mt-auto">
-                                <span class="fw-bold text-success" style="font-size: 1.4rem;">1&nbsp;100 kr</span>
-                                <span class="text-muted ms-2"
-                                    style="text-decoration: line-through;">1&nbsp;500 kr</span>
-                                <div class="text-primary fw-bold" style="font-size: 0.85rem;"
-                                    data-en="🌸 Summer special" data-sv="🌸 Sommarspecial">🌸 Sommarspecial</div>
+                            <h5 class="mb-1" style="color: #6b7c5d; font-size: 1.05rem; font-weight: 500;">Spinal
+                                Energetics</h5>
+                            <p class="mb-2" style="font-size: 0.82rem; color:#8a7863;"
+                                data-en="90 min · Norrtälje / Åkersberga"
+                                data-sv="90 min · Norrtälje / Åkersberga">90 min · Norrtälje / Åkersberga</p>
+                            <div class="mb-2 mt-auto">
+                                <span class="fw-bold" style="font-size: 1.1rem; color: #6b7c5d;">1&nbsp;100 kr</span>
+                                <span class="text-muted ms-1" style="font-size: 0.85rem; text-decoration: line-through;">1&nbsp;500
+                                    kr</span>
                             </div>
                             <div class="d-flex flex-column gap-2">
-                                <a href="https://peach.nu/activities/RfDKL9w10WOmgPM13xFr" class="btn btn-primary"
+                                <a href="https://peach.nu/activities/RfDKL9w10WOmgPM13xFr" class="btn btn-primary btn-sm"
                                     target="_blank">
-                                    <span data-en="Book Now · Norrtälje" data-sv="Boka nu · Norrtälje">Book Now ·
+                                    <span data-en="Book Now · Norrtälje" data-sv="Boka nu · Norrtälje">Boka nu ·
                                         Norrtälje</span>
                                 </a>
-                                <a href="https://peach.nu/activities/8i2RfAaqn6Fa7WCOrXKs" class="btn btn-outline-primary"
-                                    target="_blank">
-                                    <span data-en="Book Now · Åkersberga" data-sv="Boka nu · Åkersberga">Book Now ·
+                                <a href="https://peach.nu/activities/8i2RfAaqn6Fa7WCOrXKs"
+                                    class="btn btn-outline-primary btn-sm" target="_blank">
+                                    <span data-en="Book Now · Åkersberga" data-sv="Boka nu · Åkersberga">Boka nu ·
                                         Åkersberga</span>
                                 </a>
                             </div>
@@ -1488,7 +968,7 @@
 
     <!-- Services Section -->
     <section class="page-section" id="services"
-        style="padding: 2.5rem 0 0 0; margin-bottom: 0 !important; background-color: #2F170F;">
+        style="padding: 2.5rem 0 3.5rem 0; margin-top: 0; margin-bottom: 0 !important; background-color: #2F170F;">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-heading" style="color: #F0E6D2;">
@@ -1497,267 +977,137 @@
                 </h2>
             </div>
 
-        </div>
-
-        <!-- Full width image with text overlay - outside container -->
-        <div class="w-100 position-relative" id="life-force-activation" style="margin-bottom: 0;">
-            <img class="img-fluid w-100" src="assets/img/life-force-activation.jpg" alt="Life Force Activation Session"
-                style="height: calc(80vh + 6rem); object-fit: cover; display: block;" loading="lazy" />
-
-            <!-- Text overlay positioned over the image -->
-            <div class="position-absolute top-50 start-50 translate-middle w-100" style="margin-top: 2rem;">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="p-5 rounded" style="background-color: rgba(240, 230, 210, 0.95);">
-                                <h3 class="text-center mb-2"
-                                    style="color: #2F170F; font-size: 2rem !important; font-weight: 100; text-transform: uppercase;">
-                                    <span class="d-none d-md-inline" style="font-size: 2rem !important;"
-                                        data-en="Source Transmission - Life Force Activation"
-                                        data-sv="Source Transmission - Life Force Activation">Source Transmission - Life
-                                        Force Activation</span>
-                                    <div class="d-md-none"
-                                        style="font-size: 1.5rem; line-height: 1.3; text-align: center;"
-                                        data-en="Source Transmission - Life Force Activation"
-                                        data-sv="Source Transmission - Life Force Activation">
-                                        <div style="white-space: nowrap;">Source Transmission</div>
-                                        <div style="white-space: nowrap;">Life Force Activation</div>
-                                    </div>
-                                </h3>
-                                <p class="mb-4"
-                                    style="font-size: 1.1rem; font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
-                                    <span
-                                        data-en="An intuitive, experience-based practice to awaken something within you and remember who you truly are. This gentle yet powerful activation gradually builds energy, giving you exactly what you need without overwhelming your system. It helps energy flow more freely, connecting you to your true essence while releasing old patterns that no longer serve you. During activation, you may experience spontaneous movements, emotional releases, visions, various sensations, or deep relaxation. What matters most is the transformation that continues after the session."
-                                        data-sv="En intuitiv och upplevelsebaserad praktik för att väcka något inom dig och minnas vem du verkligen är. Denna kraftfulla men snälla aktivering bygger gradvis upp energin och ger dig precis vad du behöver utan att chocka ditt system. Den hjälper energin att flöda friare så du kan komma i djupare kontakt med din sanna essens och släppa gamla mönster som inte längre tjänar dig. Under aktiveringen kan du uppleva spontana rörelser, emotionella releaser, visioner, olika sensationer eller djup avslappning. Det som verkligen spelar roll är transformationen som fortsätter efter sessionen.">An
-                                        intuitive, experience-based practice to awaken something within you and remember
-                                        who you truly are. This gentle yet powerful activation gradually builds energy,
-                                        giving you exactly what you need without overwhelming your system. It helps
-                                        energy flow more freely, connecting you to your true essence while releasing old
-                                        patterns that no longer serve you. During activation, you may experience
-                                        spontaneous movements, emotional releases, visions, various sensations, or deep
-                                        relaxation. What matters most is the transformation that continues after the
-                                        session.</span>
-                                </p>
-                                <div class="d-flex flex-wrap gap-3 justify-content-center">
-                                    <div class="intro-button"><a class="btn btn-primary btn-lg"
-                                            href="https://peach.nu/activities/vcRfLGXP0qsJWEBpa0C6"><span
-                                                data-en="Private Session" data-sv="Privat session">Private
-                                                Session</span></a></div>
-                                    <div class="intro-button"><a class="btn btn-primary btn-lg"
-                                            href="https://peach.nu/c/MSZTiMAPsmeEmWZwJNp1"><span data-en="Group Session"
-                                                data-sv="Gruppsession">Group Session</span></a></div>
-                                    <div class="intro-button"><a class="btn btn-outline-secondary btn-lg"
-                                            href="life-force-activation-details.html"><span data-en="Read More"
-                                                data-sv="Läs mer">Read More</span></a></div>
-                                </div>
-                            </div>
+            <div class="row g-4 justify-content-center">
+                <!-- Life Force Activation -->
+                <div class="col-md-6 col-lg-4" id="life-force-activation">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                        <img src="assets/img/life-force-activation.jpg" class="w-100"
+                            style="height: 200px; object-fit: cover;" alt="Life Force Activation Session"
+                            loading="lazy" />
+                        <div class="card-body d-flex flex-column p-4">
+                            <h4 class="mb-2" style="color:#6b7c5d; font-size:1.2rem; font-weight:500;"
+                                data-en="Source Transmission - Life Force Activation"
+                                data-sv="Source Transmission - Life Force Activation">Source Transmission - Life Force
+                                Activation</h4>
+                            <p class="mb-3" style="font-size:0.9rem; color:#5a4a3a;"
+                                data-en="An intuitive activation to reconnect with your true essence and release what no longer serves you."
+                                data-sv="En intuitiv aktivering för att komma i kontakt med din sanna essens och släppa det som inte längre tjänar dig.">
+                                En intuitiv aktivering för att komma i kontakt med din sanna essens och släppa det som
+                                inte längre tjänar dig.</p>
+                            <a href="life-force-activation-details.html" class="btn btn-primary mt-auto">
+                                <span data-en="Learn More &amp; Book" data-sv="Läs mer &amp; boka">Läs mer &amp;
+                                    boka</span>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-
-        <!-- Full width image with text overlay - outside container -->
-        <div class="w-100 position-relative" id="spinal-energetics" style="margin-bottom: 0;">
-            <img class="img-fluid w-100" src="assets/img/spinal-energetics.jpg" alt="Spinal Energetics Session"
-                style="height: calc(80vh + 6rem); object-fit: cover; display: block;" loading="lazy" />
-
-            <!-- Text overlay positioned over the image -->
-            <div class="position-absolute top-50 start-50 translate-middle w-100" style="margin-top: 2rem;">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="p-5 rounded" style="background-color: rgba(240, 230, 210, 0.95);">
-                                <h3 class="text-center mb-4"
-                                    style="color: #2F170F; font-size: 2rem !important; font-weight: 100; text-transform: uppercase;">
-                                    <span style="font-size: 2rem !important;" data-en="Spinal Energetics"
-                                        data-sv="Spinal Energetics">Spinal Energetics</span>
-                                </h3>
-                                <p class="mb-4"
-                                    style="font-size: 1.1rem; font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
-                                    <span
-                                        data-en="Experience the profound healing power of Spinal Energetics, a gentle practice that works with your body's natural intelligence to release stored tension and trauma. This approach helps restore flow and vitality through your spine and nervous system, promoting deep healing on physical, emotional, and energetic levels. Allow your body to unwind and find its natural state of balance and wellness."
-                                        data-sv="Upplev den djupgående läkande kraften hos Spinal Energetics, en mild praktik som arbetar med din kropps naturliga intelligens för att frigöra lagrad spänning och trauma. Detta tillvägagångssätt hjälper till att återställa flöde och vitalitet genom din ryggrad och ditt nervsystem, vilket främjar djup läkning på fysiska, emotionella och energetiska nivåer. Låt din kropp varva ner och hitta sitt naturliga tillstånd av balans och välbefinnande.">Experience
-                                        the profound healing power of Spinal Energetics, a gentle practice that works
-                                        with your body's natural intelligence to release stored tension and trauma. This
-                                        approach helps restore flow and vitality through your spine and nervous system,
-                                        promoting deep healing on physical, emotional, and energetic levels. Allow your
-                                        body to unwind and find its natural state of balance and wellness.</span>
-                                </p>
-                                <p class="mb-4"
-                                    style="font-size: 1.1rem; font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
-                                    <span
-                                        data-en="Available in both individual sessions and special package deals for deeper transformation."
-                                        data-sv="Tillgängligt i både individuella sessioner och specialpaket för djupare transformation.">Available
-                                        in both individual sessions and special package deals for deeper
-                                        transformation.</span>
-                                </p>
-                                <div class="d-flex flex-wrap gap-3 justify-content-center">
-                                    <div class="intro-button"><a class="btn btn-primary btn-lg"
-                                            href="#book-online"><span data-en="Book Session ONLINE"
-                                                data-sv="Boka session ONLINE">Book Session ONLINE</span></a></div>
-                                    <div class="intro-button"><a class="btn btn-primary btn-lg"
-                                            href="#one-to-one"><span data-en="Book In-Person" data-sv="Boka på plats">Book
-                                                In-Person</span></a></div>
-                                    <div class="intro-button"><a class="btn btn-outline-secondary btn-lg"
-                                            href="spinal-energetics-details.html"><span data-en="Read More"
-                                                data-sv="Läs mer">Read More</span></a></div>
-                                </div>
-                            </div>
+                <!-- Spinal Energetics -->
+                <div class="col-md-6 col-lg-4" id="spinal-energetics">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                        <img src="assets/img/spinal-energetics.jpg" class="w-100"
+                            style="height: 200px; object-fit: cover;" alt="Spinal Energetics Session" loading="lazy" />
+                        <div class="card-body d-flex flex-column p-4">
+                            <h4 class="mb-2" style="color:#6b7c5d; font-size:1.2rem; font-weight:500;"
+                                data-en="Spinal Energetics" data-sv="Spinal Energetics">Spinal Energetics</h4>
+                            <p class="mb-3" style="font-size:0.9rem; color:#5a4a3a;"
+                                data-en="A gentle practice that releases stored tension and trauma, restoring flow through spine and nervous system."
+                                data-sv="En mild praktik som frigör lagrad spänning och trauma och återställer flödet genom ryggrad och nervsystem.">
+                                En mild praktik som frigör lagrad spänning och trauma och återställer flödet genom
+                                ryggrad och nervsystem.</p>
+                            <a href="spinal-energetics-details.html" class="btn btn-primary mt-auto">
+                                <span data-en="Learn More &amp; Book" data-sv="Läs mer &amp; boka">Läs mer &amp;
+                                    boka</span>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-
-        <!-- Full width image with text overlay - outside container -->
-        <div class="w-100 position-relative" id="breathwork" style="margin-bottom: 0;">
-            <!-- Mobile title (hidden on desktop) -->
-            <div class="d-block d-md-none text-center mb-3">
-            </div>
-            <img class="img-fluid w-100" src="assets/img/breathwork.jpg" alt="Breathwork Session"
-                style="height: calc(80vh + 6rem); object-fit: cover; display: block;" loading="lazy" />
-
-            <!-- Text overlay positioned over the image -->
-            <div class="position-absolute top-50 start-50 translate-middle w-100" style="margin-top: 2rem;">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="p-5 rounded" style="background-color: rgba(240, 230, 210, 0.95);">
-                                <h3 class="text-center mb-4"
-                                    style="color: #2F170F; font-size: 2rem !important; font-weight: 100; text-transform: uppercase;">
-                                    <span style="font-size: 2rem !important;" data-en="Breathwork"
-                                        data-sv="Breathwork">Breathwork</span>
-                                </h3>
-                                <p class="mb-4"
-                                    style="font-size: 1.1rem; font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
-                                    <span
-                                        data-en="Conscious Breathwork is an ancient practice that uses specific breathing techniques to facilitate profound healing, emotional release, and spiritual awakening. Your breath is a bridge between your conscious and unconscious mind, your body and spirit. Through powerful breathing patterns, we can bypass the analytical mind and connect directly with your inner wisdom."
-                                        data-sv="Medvetet andningsarbete är en urgammal praktik som använder specifika andningstekniker för att underlätta djup läkning, emotionell frigörelse och andlig uppvaknande. Din andning är en bro mellan ditt medvetna och omedvetna sinne, din kropp och ande. Genom kraftfulla andningsmönster kan vi kringgå det analytiska sinnet och ansluta direkt med din inre visdom.">Conscious
-                                        Breathwork is an ancient practice that uses specific breathing techniques to
-                                        facilitate profound healing, emotional release, and spiritual awakening. Your
-                                        breath is a bridge between your conscious and unconscious mind, your body and
-                                        spirit. Through powerful breathing patterns, we can bypass the analytical mind
-                                        and connect directly with your inner wisdom.</span>
-                                </p>
-                                <p class="mb-4"
-                                    style="font-size: 1.1rem; font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
-                                    <span
-                                        data-en="Each breathwork session creates a safe container for exploration and healing, guided by the intelligence of your breath and the wisdom of your body."
-                                        data-sv="Varje andningsarbetssession skapar en säker behållare för utforskning och läkning, vägledd av din andnings intelligens och din kropps visdom.">Each
-                                        breathwork session creates a safe container for exploration and healing, guided
-                                        by the intelligence of your breath and the wisdom of your body.</span>
-                                </p>
-                                <div class="d-flex flex-wrap gap-3 justify-content-center">
-                                    <div class="intro-button"><a class="btn btn-primary btn-lg"
-                                            href="#book-online"><span
-                                                data-en="Book Private Session ONLINE"
-                                                data-sv="Boka privat session ONLINE">Book Private Session
-                                                ONLINE</span></a></div>
-                                    <div class="intro-button"><a class="btn btn-primary btn-lg"
-                                            href="https://peach.nu/c/MSZTiMAPsmeEmWZwJNp1"><span
-                                                data-en="Book Group Session ONLINE"
-                                                data-sv="Boka gruppsession ONLINE">Book Group Session ONLINE</span></a>
-                                    </div>
-                                    <div class="intro-button"><a class="btn btn-outline-secondary btn-lg"
-                                            href="breathwork-details.html"><span data-en="Read More"
-                                                data-sv="Läs mer">Read More</span></a></div>
-                                </div>
-                            </div>
+                <!-- Breathwork -->
+                <div class="col-md-6 col-lg-4" id="breathwork">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                        <img src="assets/img/breathwork.jpg" class="w-100" style="height: 200px; object-fit: cover;"
+                            alt="Breathwork Session" loading="lazy" />
+                        <div class="card-body d-flex flex-column p-4">
+                            <h4 class="mb-2" style="color:#6b7c5d; font-size:1.2rem; font-weight:500;"
+                                data-en="Breathwork" data-sv="Breathwork">Breathwork</h4>
+                            <p class="mb-3" style="font-size:0.9rem; color:#5a4a3a;"
+                                data-en="Conscious breathwork that facilitates deep healing, emotional release and spiritual awakening."
+                                data-sv="Medvetet andningsarbete som underlättar djup läkning, emotionell frigörelse och andligt uppvaknande.">
+                                Medvetet andningsarbete som underlättar djup läkning, emotionell frigörelse och
+                                andligt uppvaknande.</p>
+                            <a href="breathwork-details.html" class="btn btn-primary mt-auto">
+                                <span data-en="Learn More &amp; Book" data-sv="Läs mer &amp; boka">Läs mer &amp;
+                                    boka</span>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-
-        <!-- Full width image with text overlay - outside container -->
-        <div class="w-100 position-relative" id="reiki-healing" style="margin-bottom: 0;">
-            <img class="img-fluid w-100" src="assets/img/reiki-healing.jpg" alt="Reiki Healing Session"
-                style="height: calc(80vh + 6rem); object-fit: cover; display: block;" loading="lazy" />
-
-            <!-- Text overlay positioned over the image -->
-            <div class="position-absolute top-50 start-50 translate-middle w-100" style="margin-top: 2rem;">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="p-5 rounded" style="background-color: rgba(240, 230, 210, 0.95);">
-                                <h3 class="text-center mb-4"
-                                    style="color: #2F170F; font-size: 2rem !important; font-weight: 100; text-transform: uppercase;">
-                                    <span style="font-size: 2rem !important;" data-en="Reiki Healing"
-                                        data-sv="Reiki Healing">Reiki Healing</span>
-                                </h3>
-                                <p class="mb-4"
-                                    style="font-size: 1.1rem; font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
-                                    <span
-                                        data-en="Experience the gentle yet powerful healing energy of Reiki, an ancient Japanese practice that channels universal life force energy to promote deep relaxation, stress reduction, and natural healing."
-                                        data-sv="Upplev den milda men kraftfulla läkande energin från Reiki, en uråldrig japansk praktik som kanaliserar universell livskraftsenergi för att främja djup avslappning, stressreduktion och naturlig läkning.">Experience
-                                        the gentle yet powerful healing energy of Reiki, an ancient Japanese practice
-                                        that channels universal life force energy to promote deep relaxation, stress
-                                        reduction, and natural healing.</span>
-                                </p>
-                                <div class="d-flex flex-wrap gap-3 justify-content-center">
-                                    <div class="intro-button"><a class="btn btn-primary btn-lg"
-                                            href="https://peach.nu/activities/QThYzlVEbJVHDaHoH6XY"><span
-                                                data-en="Book Reiki" data-sv="Boka Reiki">Book Reiki</span></a></div>
-                                    <div class="intro-button"><a class="btn btn-outline-secondary btn-lg"
-                                            href="reiki-healing-details.html"><span data-en="Read More"
-                                                data-sv="Läs mer">Read More</span></a></div>
-                                </div>
-                            </div>
+                <!-- Reiki Healing -->
+                <div class="col-md-6 col-lg-4" id="reiki-healing">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                        <img src="assets/img/reiki-healing.jpg" class="w-100"
+                            style="height: 200px; object-fit: cover;" alt="Reiki Healing Session" loading="lazy" />
+                        <div class="card-body d-flex flex-column p-4">
+                            <h4 class="mb-2" style="color:#6b7c5d; font-size:1.2rem; font-weight:500;"
+                                data-en="Reiki Healing" data-sv="Reiki Healing">Reiki Healing</h4>
+                            <p class="mb-3" style="font-size:0.9rem; color:#5a4a3a;"
+                                data-en="Gentle yet powerful energy healing that promotes deep relaxation, stress reduction and natural healing."
+                                data-sv="Mild men kraftfull energiläkning som främjar djup avslappning, stressreduktion och naturlig läkning.">
+                                Mild men kraftfull energiläkning som främjar djup avslappning, stressreduktion och
+                                naturlig läkning.</p>
+                            <a href="reiki-healing-details.html" class="btn btn-primary mt-auto">
+                                <span data-en="Learn More &amp; Book" data-sv="Läs mer &amp; boka">Läs mer &amp;
+                                    boka</span>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
+                <!-- Cacao Ceremonies -->
+                <div class="col-md-6 col-lg-4" id="cacao-ceremonies">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                        <img src="assets/img/cacao-ceremony.jpg" class="w-100"
+                            style="height: 200px; object-fit: cover;" alt="Cacao Ceremony" loading="lazy" />
+                        <div class="card-body d-flex flex-column p-4">
+                            <h4 class="mb-2" style="color:#6b7c5d; font-size:1.2rem; font-weight:500;"
+                                data-en="Cacao Ceremonies" data-sv="Cacao Ceremonies">Cacao Ceremonies</h4>
+                            <p class="mb-3" style="font-size:0.9rem; color:#5a4a3a;"
+                                data-en="A heart-opening ceremony with sacred cacao, creating space for connection, healing and community."
+                                data-sv="En hjärtöppnande ceremoni med helig kakao som skapar utrymme för kontakt, läkning och gemenskap.">
+                                En hjärtöppnande ceremoni med helig kakao som skapar utrymme för kontakt, läkning och
+                                gemenskap.</p>
+                            <a href="mailto:soulrisebylina@gmail.com?subject=Cacao Ceremony Booking&body=Hi Lina,%0A%0AI would like to learn more about your private cacao ceremonies and booking details.%0A%0AThank you!"
+                                class="btn btn-primary mt-auto">
+                                <span data-en="Send Email for Booking Details"
+                                    data-sv="Skicka e-post för bokningsdetaljer">Skicka e-post för
+                                    bokningsdetaljer</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Full width image with text overlay - outside container -->
-        <div class="w-100 position-relative" id="cacao-ceremonies" style="margin-bottom: 0;">
-            <div class="d-block d-md-none text-center mb-3" style="background-color: #F0E6D2;">
-            </div>
-            <img class="img-fluid w-100" src="assets/img/cacao-ceremony.jpg" alt="Cacao Ceremony"
-                style="height: calc(80vh + 6rem); object-fit: cover; display: block;" loading="lazy" />
-
-            <!-- Text overlay positioned over the image -->
-            <div class="position-absolute top-50 start-50 translate-middle w-100" style="margin-top: 2rem;">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="p-5 rounded" style="background-color: rgba(240, 230, 210, 0.95);">
-                                <h3 class="text-center mb-4"
-                                    style="color: #2F170F; font-size: 2rem !important; font-weight: 100; text-transform: uppercase;">
-                                    <span style="font-size: 2rem !important;" data-en="Cacao Ceremonies"
-                                        data-sv="Cacao Ceremonies">Cacao Ceremonies</span>
-                                </h3>
-                                <p class="mb-4"
-                                    style="font-size: 1.1rem; font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
-                                    <span
-                                        data-en="Experience a sacred cacao ceremony where we honor this ancient plant medicine together. The ceremonial cacao is heart-opening and beautiful to share in ceremony. The magic of cacao creates space for connection, healing, and community in a safe environment."
-                                        data-sv="Upplev en kakaoceremoni där vi hedrar denna uråldriga växtmedicin tillsammans. Den ceremoniella kakaon är hjärtöppnande och fin att dela i ceremoni. Kakaons magi skapar utrymme för kontakt, läkning och gemenskap i en trygg miljö.">Experience
-                                        a sacred cacao ceremony where we honor this ancient plant medicine together. The
-                                        ceremonial cacao is heart-opening and beautiful to share in ceremony. The magic
-                                        of cacao creates space for connection, healing, and community in a safe
-                                        environment.</span>
-                                </p>
-                                <p class="mb-4"
-                                    style="font-size: 1.1rem; font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
-                                    <span
-                                        data-en="Experience the gentle guidance of mama cacao through meditation, intention setting, and sharing."
-                                        data-sv="Upplev mama cacao's milda guidning genom meditation, intentionsättning och delning.">Experience
-                                        the gentle guidance of mama cacao through meditation, intention setting, and
-                                        sharing.</span>
-                                </p>
-                                <div class="d-flex flex-wrap gap-3 justify-content-center">
-                                    <div class="intro-button"><a class="btn btn-primary btn-lg"
-                                            href="mailto:soulrisebylina@gmail.com?subject=Cacao Ceremony Booking&body=Hi Lina,%0A%0AI would like to learn more about your private cacao ceremonies and booking details.%0A%0AThank you!"><span
-                                                data-en="Send Email for Booking Details"
-                                                data-sv="Skicka e-post för bokningsdetaljer">Send Email for Booking
-                                                Details</span></a></div>
-                                </div>
-                            </div>
+                <!-- Soul Remembrance Journey (1:1) -->
+                <div class="col-md-6 col-lg-4" id="packages">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                        <img src="assets/img/lina-profile.jpg" class="w-100"
+                            style="height: 200px; object-fit: cover; object-position: center 30%;"
+                            alt="Soul Remembrance Journey - 1:1 with Lina" loading="lazy" />
+                        <div class="card-body d-flex flex-column p-4">
+                            <h4 class="mb-2" style="color:#6b7c5d; font-size:1.2rem; font-weight:500;"
+                                data-en="Soul Remembrance Journey" data-sv="Soul Remembrance Journey">Soul
+                                Remembrance Journey</h4>
+                            <p class="mb-3" style="font-size:0.9rem; color:#5a4a3a;"
+                                data-en="Want to go deeper? A personal 1:1 journey over 8-12 weeks, just you and me, 12 900 kr."
+                                data-sv="Vill du gå djupare? En personlig 1:1-resa över 8–12 veckor, bara du och jag, 12 900 kr.">
+                                Vill du gå djupare? En personlig 1:1-resa över 8–12 veckor, bara du och jag, 12 900
+                                kr.</p>
+                            <a href="https://peach.nu/activities/UZ0zS0p8HeAIvLcj5jf2" class="btn btn-primary mt-auto"
+                                target="_blank">
+                                <span data-en="Learn More &amp; Book" data-sv="Läs mer &amp; boka">Läs mer &amp;
+                                    boka</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1768,108 +1118,62 @@
 
     <!-- About Me Section -->
     <section class="page-section" id="about"
-        style="padding: 2rem 0 5rem 0; margin-top: 0 !important; margin-bottom: 0 !important; background-color: #6b7c5d;">
+        style="padding: 3rem 0 4rem 0; margin-top: 0 !important; margin-bottom: 0 !important; background-color: #6b7c5d;">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-10 mx-auto">
-                    <div class="text-center rounded shadow-lg p-3"
-                        style="background: linear-gradient(135deg, #F0E6D2 0%, #faf0e6 100%); border: 3px solid #8B7355;">
-                        <!-- Header -->
-                        <div class="mb-5" style="padding-top: 3.5rem;">
-                            <h2 class="section-heading mb-4">
-                                <span class="section-heading-lower" style="color: #2F170F; font-size: 2.5rem;"
-                                    data-en="About Me" data-sv="Om mig">About Me</span>
-                            </h2>
-                        </div>
+            <div class="text-center mb-5">
+                <h2 class="section-heading">
+                    <span class="section-heading-lower" style="color: #F0E6D2; font-size: 2.5rem;" data-en="About Me"
+                        data-sv="Om mig">Om mig</span>
+                </h2>
+            </div>
 
-                        <!-- Profile Image -->
-                        <div class="text-center mb-4">
-                            <img src="assets/img/lina-profile.jpg"
-                                alt="Lina, licensed naprapath and energy healer at Soulrise Studio"
-                                class="img-fluid rounded-circle shadow"
-                                style="max-width: 400px; width: 400px; height: 400px; object-fit: cover; object-position: center 30%; transform: scale(0.8);"
-                                loading="lazy">
-                            <h4 class="mt-3" style="color: #8B7355; font-weight: 400; font-style: italic;">
-                                <span data-en="Hi, I'm Lina" data-sv="Hej, jag heter Lina">Hi, I'm Lina</span>
-                            </h4>
-                        </div>
+            <div class="row align-items-center g-4 g-lg-5 justify-content-center">
+                <!-- Profile Image -->
+                <div class="col-md-5 col-lg-4 text-center">
+                    <img src="assets/img/lina-profile.jpg"
+                        alt="Lina, licensed naprapath and energy healer at Soulrise Studio"
+                        class="img-fluid rounded-circle shadow"
+                        style="width: 240px; height: 240px; object-fit: cover; object-position: center 30%;"
+                        loading="lazy">
+                    <h4 class="mt-3" style="color: #F0E6D2; font-weight: 400; font-style: italic;">
+                        <span data-en="Hi, I'm Lina" data-sv="Hej, jag heter Lina">Hej, jag heter Lina</span>
+                    </h4>
+                </div>
 
-                        <!-- Story Content -->
-                        <div class="row align-items-center">
-                            <div class="col-lg-10 mx-auto">
-                                <div class="p-4">
-                                    <p class="mb-4" style="color: #5a4a3a; text-align: left; font-size: 1.1rem;">
-                                        <span
-                                            data-en="With a foundation as a licensed naprapath since 2012, I've always been drawn to understanding the body's natural healing mechanisms. My journey into energy work began in 2022 with my first KAP (Kundalini Activation Process) session which opened a completely new world for me and naturally complemented my background in manual therapy. That experience sparked a deep longing to explore the transformative power of energy work, leading me to pursue Reiki Healing training and KAP. Since then, I have deepened my practice in Life Force Activation and also explored Spinal Energetics. Each modality I've studied has deepened my understanding of how energy moves through the body and how we can facilitate profound healing and transformation."
-                                            data-sv="Med en grund som legitimerad naprapat sedan 2012 har jag alltid varit dragen till att förstå kroppens naturliga läkningsmmekanismer. Min resa inom energiarbete började 2022 med min första KAP (Kundalini Activation Process) session som öppnade en helt ny värld för mig och på ett naturligt sätt kompletterade min bakgrund inom manuell behandling. Den upplevelsen väckte en stark längtan att utforska energiarbetets transformativa kraft, vilket ledde mig till att utbilda mig inom Reiki Healing och KAP. Sedan dess har jag fördjupat mig inom Life Force Activation och även utforskat Spinal Energetics. Varje modalitet jag studerat har fördjupat min förståelse för hur energi rör sig genom kroppen och hur vi kan underlätta djup läkning och transformation.">
-                                            With a foundation as a licensed naprapath since 2012, I've always been drawn
-                                            to understanding the body's natural healing mechanisms. My journey into
-                                            energy work began in 2022 with Reiki Healing training, followed by my first
-                                            KAP (Kundalini Activation Process) session which opened a completely new
-                                            world for me and beautifully complemented my hands-on healing background.
-                                            This profound experience sparked a deep calling to explore and understand
-                                            the transformative power of energy healing.
-                                        </span>
-                                    </p>
+                <!-- Story Content -->
+                <div class="col-md-7 col-lg-8">
+                    <p class="mb-3" style="color: #F0E6D2; font-size: 1.05rem;"
+                        data-en="A licensed naprapath since 2012, my journey since 2022 has led me deeper into energy work - from Reiki Healing to KAP and Life Force Activation, and onward to Spinal Energetics. Each modality has deepened my understanding of how energy moves through the body and how we can facilitate deep healing."
+                        data-sv="Legitimerad naprapat sedan 2012, med en resa som sedan 2022 fört mig vidare in i energiarbete – från Reiki Healing till KAP och Life Force Activation, och vidare till Spinal Energetics. Varje modalitet har fördjupat min förståelse för hur energi rör sig genom kroppen och hur vi kan underlätta djup läkning.">
+                        Legitimerad naprapat sedan 2012, med en resa som sedan 2022 fört mig vidare in i energiarbete –
+                        från Reiki Healing till KAP och Life Force Activation, och vidare till Spinal Energetics.
+                        Varje modalitet har fördjupat min förståelse för hur energi rör sig genom kroppen och hur vi
+                        kan underlätta djup läkning.</p>
+                    <p class="mb-4" style="color: #F0E6D2; font-size: 1.05rem;"
+                        data-en="What drives me is seeing the changes that happen when the body gets space to heal. I'm here to hold space for your journey of healing and transformation - your remembering. Personally, I'm a mother of two sons and split my time between Spain and Sweden."
+                        data-sv="Det som driver mig är att se förändringarna som sker när kroppen får utrymme att läka. Jag är här för att hålla utrymme för din resa av läkning och transformation – din remembering. Privat är jag mamma till två söner och delar min tid mellan Spanien och Sverige.">
+                        Det som driver mig är att se förändringarna som sker när kroppen får utrymme att läka. Jag är
+                        här för att hålla utrymme för din resa av läkning och transformation – din remembering. Privat
+                        är jag mamma till två söner och delar min tid mellan Spanien och Sverige.</p>
 
-                                    <p class="mb-4" style="color: #5a4a3a; text-align: left; font-size: 1.1rem;">
-                                        <span
-                                            data-en="What drives me is seeing the amazing changes that happen when we give the body space to heal. My own journey has taught me that true healing happens when we honor both the body's wisdom and the soul's longing. I'm here to hold space for your unique journey of healing and transformation - your remembering."
-                                            data-sv="Det som driver mig är att se de fantastiska förändringar som sker när vi ger kroppen utrymme att läka. Min egen resa har lärt mig att sann läkning sker när vi hedrar både kroppens visdom och själens längtan. Jag är här för att hålla utrymme för din unika resa av läkning och transformation - din remembering.">
-                                            What drives me is seeing the amazing changes that happen when we give the
-                                            body space to heal. My own journey has taught me that true healing happens
-                                            when we honor both the body's wisdom and the soul's longing. I'm here to
-                                            hold space for your unique journey of healing and transformation.
-                                        </span>
-                                    </p>
-
-                                    <p class="mb-4 mt-3" style="color: #5a4a3a; text-align: left; font-size: 1.1rem;">
-                                        <span
-                                            data-en="On a personal note, I am a mother of two sons and currently split my time between Spain and Sweden, which enriches both my life and my healing practice."
-                                            data-sv="På ett personligt plan är jag mamma till två söner och delar för närvarande min tid mellan Spanien och Sverige, vilket berikar både mitt liv och mitt arbete.">
-                                            On a personal note, I am a mother of two sons and currently split my time
-                                            between Spain and Sweden, bringing a multicultural perspective to my healing
-                                            work.
-                                        </span>
-                                    </p>
-
-                                    <div class="text-center mb-4">
-                                        <span style="font-size: 1.5rem; color: #a69073;">♥</span>
-                                    </div>
-
-                                    <!-- Certifications -->
-                                    <div class="mt-5 p-4 rounded-3"
-                                        style="background: rgba(139, 115, 85, 0.1); border: 2px solid #8B7355;">
-                                        <h5 class="mb-3" style="color: #2F170F;" data-en="Certifications & Training"
-                                            data-sv="Certifieringar & Utbildningar">Certifications & Training</h5>
-                                        <ul class="list-unstyled mb-0" style="color: #5a4a3a;">
-                                            <li class="mb-2">✓ <span data-en="Licensed Naprapath (2012)"
-                                                    data-sv="Legitimerad Naprapat (2012)">Licensed Naprapath
-                                                    (2012)</span></li>
-                                            <li class="mb-2">✓ <span
-                                                    data-en="Holistic Lifestyle Coach - Paul Chek Level 1-3"
-                                                    data-sv="Holistisk livsstilscoach - Paul Chek Steg 1-3">Holistic
-                                                    Lifestyle Coach - Paul Chek Level 1-3</span></li>
-                                            <li class="mb-2">✓ <span data-en="Reiki Healing Level 1 & 2 (2022)"
-                                                    data-sv="Reiki Healing Steg 1 & 2 (2022)">Reiki Healing Level 1 & 2
-                                                    (2022)</span></li>
-                                            <li class="mb-2">✓ <span
-                                                    data-en="KAP (Kundalini Activation Process) Facilitator (2023)"
-                                                    data-sv="KAP (Kundalini Activation Process) Facilitator (2023)">KAP
-                                                    (Kundalini Activation Process) Facilitator (2023)</span></li>
-                                            <li class="mb-2">✓ <span
-                                                    data-en="Source Transmission - Life Force Activation (2025)"
-                                                    data-sv="Source Transmission - Life Force Activation (2025)">Source
-                                                    Transmission - Life Force Activation (2025)</span></li>
-                                            <li class="mb-2">✓ <span data-en="Spinal Energetics Facilitator (2025)"
-                                                    data-sv="Spinal Energetics Facilitator (2025)">Spinal Energetics
-                                                    Facilitator (2025)</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Certifications -->
+                    <ul class="list-unstyled mb-0" style="color: #F0E6D2; font-size: 0.9rem; opacity: 0.9;">
+                        <li class="mb-1" data-en="Licensed Naprapath (2012)" data-sv="Legitimerad Naprapat (2012)">
+                            Legitimerad Naprapat (2012)</li>
+                        <li class="mb-1" data-en="Holistic Lifestyle Coach - Paul Chek Level 1-3"
+                            data-sv="Holistisk livsstilscoach - Paul Chek Steg 1-3">Holistisk livsstilscoach - Paul
+                            Chek Steg 1-3</li>
+                        <li class="mb-1" data-en="Reiki Healing Level 1 & 2 (2022)"
+                            data-sv="Reiki Healing Steg 1 & 2 (2022)">Reiki Healing Steg 1 &amp; 2 (2022)</li>
+                        <li class="mb-1" data-en="KAP (Kundalini Activation Process) Facilitator (2023)"
+                            data-sv="KAP (Kundalini Activation Process) Facilitator (2023)">KAP (Kundalini Activation
+                            Process) Facilitator (2023)</li>
+                        <li class="mb-1" data-en="Source Transmission - Life Force Activation (2025)"
+                            data-sv="Source Transmission - Life Force Activation (2025)">Source Transmission - Life
+                            Force Activation (2025)</li>
+                        <li class="mb-1" data-en="Spinal Energetics Facilitator (2025)"
+                            data-sv="Spinal Energetics Facilitator (2025)">Spinal Energetics Facilitator (2025)</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -1877,20 +1181,18 @@
 
     <!-- Client Love Section -->
     <section class="page-section" id="testimonials"
-        style="padding: 3rem 0 5rem 0; margin-top: 0; background-color: #faf0e6;">
+        style="padding: 2rem 0 3rem 0; margin-top: 0; background-color: #faf0e6;">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-4">
                 <h2 class="section-heading">
                     <span class="section-heading-lower" style="color: #2F170F; font-size: 2.5rem;">Client Love</span>
                 </h2>
-                <p class="text-muted mt-3" data-en="Words from beautiful souls" data-sv="Ord från vackra själar">Words
-                    from beautiful souls</p>
             </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="p-4 h-100 rounded-3 shadow-sm" style="background: white; border: 1px solid #e6a756;">
-                        <div class="mb-3" style="color: #e6a756; font-size: 1.5rem;">&#10077;</div>
-                        <p class="fst-italic mb-3" style="color: #5a4a3a;"
+            <div class="row g-3">
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-3 h-100 rounded-3 shadow-sm" style="background: white; border: 1px solid #e6a756;">
+                        <div class="mb-2" style="color: #e6a756; font-size: 1.25rem;">&#10077;</div>
+                        <p class="fst-italic mb-2" style="color: #5a4a3a; font-size: 0.88rem;"
                             data-en="I find it hard to relax as my nervous system is constantly on high alert. With Lina's spinal energetics I have felt more relaxed than I thought was possible. I also always feel completely safe with Lina which feels important."
                             data-sv="Har svårt att koppla av då mitt nervsystem går på helvarv. Med Linas spinal energetics har jag känt mig mer avslappnad än jag trodde var möjligt. Dessutom känner jag mig alltid helt trygg med Lina vilket känns viktigt.">
                             Har svårt att koppla av då mitt nervsystem går på helvarv. Med Linas spinal energetics har
@@ -1899,10 +1201,10 @@
                         <p class="fw-bold mb-0" style="color: #a69073;">Linda</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="p-4 h-100 rounded-3 shadow-sm" style="background: white; border: 1px solid #e6a756;">
-                        <div class="mb-3" style="color: #e6a756; font-size: 1.5rem;">&#10077;</div>
-                        <p class="fst-italic mb-3" style="color: #5a4a3a;"
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-3 h-100 rounded-3 shadow-sm" style="background: white; border: 1px solid #e6a756;">
+                        <div class="mb-2" style="color: #e6a756; font-size: 1.25rem;">&#10077;</div>
+                        <p class="fst-italic mb-2" style="color: #5a4a3a; font-size: 0.88rem;"
                             data-en="After several sessions with Lina I feel a clear difference in my body. She holds a very safe and allowing space where nothing needs to be performed, you just get to be and let the process happen. Warmly recommended to anyone who wants to release tension, connect deeper with their body and give themselves a moment of true recovery and healing 🤍"
                             data-sv="Efter flera sessioner med Lina känner jag en tydlig skillnad i kroppen. Hon håller ett väldigt tryggt och tillåtande space där inget behöver presteras, du får bara vara och låta processen ske. Rekommenderas varmt till alla som vill släppa spänningar, komma djupare i kontakt med kroppen och ge sig själv en stund av verklig återhämtning och läkning 🤍">
                             Efter flera sessioner med Lina känner jag en tydlig skillnad i kroppen. Hon håller ett
@@ -1912,10 +1214,10 @@
                         <p class="fw-bold mb-0" style="color: #a69073;">Yvette</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="p-4 h-100 rounded-3 shadow-sm" style="background: white; border: 1px solid #e6a756;">
-                        <div class="mb-3" style="color: #e6a756; font-size: 1.5rem;">&#10077;</div>
-                        <p class="fst-italic mb-3" style="color: #5a4a3a;"
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-3 h-100 rounded-3 shadow-sm" style="background: white; border: 1px solid #e6a756;">
+                        <div class="mb-2" style="color: #e6a756; font-size: 1.25rem;">&#10077;</div>
+                        <p class="fst-italic mb-2" style="color: #5a4a3a; font-size: 0.88rem;"
                             data-en="I did the Source Connection Journey, 8 weeks with Lina. It was so rewarding to go regularly. My body looked forward to this day. I felt safe in the group. Lina guided us through the sessions calmly and with such energy. She is so present with her gentle and reassuring way."
                             data-sv="Jag gick Source Connection Journey, en resa i 8 veckor med Lina. Var så givande att gå regelbundet. Kroppen såg fram emot denna dag. Kände mig trygg i gruppen. Lina guidade oss genom sessionerna lugnt och energigivande. Lina är så närvarande med sitt mjuka och trygga sätt.">
                             Jag gick Source Connection Journey, en resa i 8 veckor med Lina. Var så givande att gå
@@ -1925,12 +1227,10 @@
                         <p class="fw-bold mb-0" style="color: #a69073;">Elsie</p>
                     </div>
                 </div>
-            </div>
-            <div class="row g-4 mt-2 justify-content-center">
-                <div class="col-md-4">
-                    <div class="p-4 h-100 rounded-3 shadow-sm" style="background: white; border: 1px solid #e6a756;">
-                        <div class="mb-3" style="color: #e6a756; font-size: 1.5rem;">&#10077;</div>
-                        <p class="fst-italic mb-3" style="color: #5a4a3a;"
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-3 h-100 rounded-3 shadow-sm" style="background: white; border: 1px solid #e6a756;">
+                        <div class="mb-2" style="color: #e6a756; font-size: 1.25rem;">&#10077;</div>
+                        <p class="fst-italic mb-2" style="color: #5a4a3a; font-size: 0.88rem;"
                             data-en="In Lina's presence I feel safe and truly held. She has helped me activate the flow in my body and in my life, but also guided me back home to my center, to a place of complete calm. I warmly recommend both Spinal Energetics and Life Force Activation to anyone who wants to deepen their feminine energy and release blockages in the body."
                             data-sv="I Linas närvaro känner jag mig trygg och helt omhändertagen. Hon har hjälpt mig att aktivera flödet i min kropp och i mitt liv, men också vägleda mig tillbaka hem till mitt centrum, till en plats av fullständig ro. Jag rekommenderar varmt både Spinal Energetics och Life Force Activation till alla som vill fördjupa sin feminina energi och släppa blockeringar i kroppen.">
                             I Linas närvaro känner jag mig trygg och helt omhändertagen. Hon har hjälpt mig att aktivera
@@ -1946,184 +1246,76 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="page-section cta" id="contact">
+    <section class="page-section" id="contact"
+        style="padding: 3rem 0 4rem 0; margin-top: 0; background-color: #F0E6D2;">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-10 mx-auto">
-                    <div class="cta-inner text-center rounded shadow-lg"
-                        style="background: linear-gradient(135deg, #F0E6D2 0%, #faf0e6 100%); border: 3px solid #e6a756; padding: 3rem;">
-                        <!-- Header Section -->
-                        <div class="mb-5">
-                            <h2 class="section-heading mb-4">
-                                <span class="section-heading-lower" style="color: #2F170F; font-size: 2.5rem;">Connect
-                                    From Anywhere</span>
-                            </h2>
+            <div class="text-center mb-4">
+                <h2 class="section-heading">
+                    <span class="section-heading-lower" style="color: #2F170F; font-size: 2.5rem;">Connect From
+                        Anywhere</span>
+                </h2>
+            </div>
 
-                        </div>
-
-                        <!-- Decorative Divider -->
-                        <div class="d-flex align-items-center my-5">
-                            <div class="flex-grow-1"
-                                style="height: 2px; background: linear-gradient(to right, transparent, #e6a756, transparent);">
-                            </div>
-                            <div class="px-4">
-                                <i class="fas fa-heart" style="color: #e6a756; font-size: 1.5rem;"
-                                    aria-hidden="true"></i>
-                            </div>
-                            <div class="flex-grow-1"
-                                style="height: 2px; background: linear-gradient(to right, transparent, #e6a756, transparent);">
-                            </div>
-                        </div>
-
-                        <!-- Journey Packages -->
-                        <div class="mb-5">
-                            <h4 class="mb-4" style="color: #2F170F;">
-                                <span data-en="Your Next Step" data-sv="Ditt nästa steg">Your Next Step</span>
-                            </h4>
-                            <div class="row g-3">
-                                <div class="col-md-4">
-                                    <div class="p-3 rounded-3 h-100"
-                                        style="background: rgba(255,255,255,0.7); border: 1px solid #6b7c5d;">
-                                        <h5 style="color: #6b7c5d;" data-en="Source Connection Journey"
-                                            data-sv="Source Connection Journey">Source Connection Journey</h5>
-                                        <p class="mb-1 text-muted"><span data-en="Online group journey, 6 sessions"
-                                                data-sv="Gruppresa online, 6 tillfällen">Online group journey, 6
-                                                sessions</span></p>
-                                        <p class="fw-bold mb-2" style="color: #2F170F; font-size: 1.3rem;">2 200 kr</p>
-                                        <a href="#book-online"
-                                            class="btn btn-sm btn-outline-primary"
-                                            style="border: 2px solid #6b7c5d; color: #6b7c5d; border-radius: 25px;">
-                                            <span data-en="Join" data-sv="Gå med">Join</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="p-3 rounded-3 h-100"
-                                        style="background: rgba(255,255,255,0.7); border: 1px solid #e6a756;">
-                                        <h5 style="color: #a69073;" data-en="Soul Remembrance Journey"
-                                            data-sv="Soul Remembrance Journey">Soul Remembrance Journey</h5>
-                                        <p class="mb-1 text-muted"><span data-en="1:1 Personal Journey online, 8-12 weeks"
-                                                data-sv="1:1 Personlig resa online, 8-12 veckor">1:1 Personal Journey online, 8-12
-                                                weeks</span></p>
-                                        <p class="fw-bold mb-2" style="color: #2F170F; font-size: 1.3rem;">12 900 kr</p>
-                                        <a href="mailto:soulrisebylina@gmail.com?subject=Soul Remembrance Journey&body=Hej Lina,%0A%0AJag är intresserad av Soul Remembrance Journey (1:1). Kan du berätta mer?%0A%0ATack!"
-                                            class="btn btn-sm btn-outline-primary"
-                                            style="border: 2px solid #8B7355; color: #8B7355; border-radius: 25px;">
-                                            <span data-en="Get Details" data-sv="Få detaljer">Get Details</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="p-3 rounded-3 h-100"
-                                        style="background: rgba(255,255,255,0.7); border: 1px solid #6b7c5d;">
-                                        <h5 style="color: #6b7c5d;" data-en="Remember Your Power"
-                                            data-sv="Remember Your Power">Remember Your Power</h5>
-                                        <p class="mb-1 text-muted"><span data-en="Online group program, 3 months"
-                                                data-sv="Onlineprogram i grupp, 3 månader">Online group program, 3
-                                                months</span></p>
-                                        <p class="fw-bold mb-2" style="color: #2F170F; font-size: 1.3rem;">6 900 kr
-                                            <span style="font-weight: 400; font-size: 0.9rem; color: #6b7c5d;"
-                                                data-en="(reg. 11 900 kr)" data-sv="(ord. 11 900 kr)">(ord. 11 900
-                                                kr)</span></p>
-                                        <a href="remember-your-power.html" class="btn btn-sm btn-outline-primary"
-                                            style="border: 2px solid #6b7c5d; color: #6b7c5d; border-radius: 25px;">
-                                            <span data-en="Read more" data-sv="Läs mer">Read more</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Session Booking -->
-                        <div class="mb-4 text-center">
-                            <p class="mb-2" style="color: #5a4a3a;">
-                                <span data-en="Want to book a single session?"
-                                    data-sv="Vill du boka en enskild session?">Want to book a single session?</span>
-                            </p>
-                            <a href="#services" class="btn btn-sm btn-outline-primary"
-                                style="border: 2px solid #8B7355; color: #8B7355; border-radius: 25px;">
-                                <span data-en="Browse & Book Sessions" data-sv="Se & boka sessioner">Browse & Book
-                                    Sessions</span>
-                            </a>
-                        </div>
-
-                        <!-- Decorative Divider -->
-                        <div class="d-flex align-items-center mb-5">
-                            <div class="flex-grow-1"
-                                style="height: 2px; background: linear-gradient(to right, transparent, #e6a756, transparent);">
-                            </div>
-                            <div class="px-4">
-                                <i class="fas fa-envelope" style="color: #e6a756; font-size: 1.2rem;"
-                                    aria-hidden="true"></i>
-                            </div>
-                            <div class="flex-grow-1"
-                                style="height: 2px; background: linear-gradient(to right, transparent, #e6a756, transparent);">
-                            </div>
-                        </div>
-
-                        <!-- Contact Form -->
-                        <div class="mb-5">
-                            <form action="https://formsubmit.co/soulrisebylina@gmail.com" method="POST"
-                                class="text-start p-4 rounded-3"
-                                style="background: rgba(255, 255, 255, 0.7); border: 1px solid #e6a756; max-width: 600px; margin: 0 auto;">
-                                <input type="hidden" name="_subject" value="New message from Soul Rise Studio website">
-                                <input type="hidden" name="_captcha" value="true">
-                                <input type="text" name="_honey" style="display:none" aria-hidden="true" tabindex="-1">
-                                <div class="mb-3">
-                                    <label class="form-label fw-bold" style="color: #2F170F;">
-                                        <span data-en="Name" data-sv="Namn">Name</span>
-                                    </label>
-                                    <input type="text" name="name" class="form-control" required
-                                        style="border: 1px solid #e6a756; border-radius: 10px;">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label fw-bold" style="color: #2F170F;">
-                                        <span data-en="Email" data-sv="Email">Email</span>
-                                    </label>
-                                    <input type="email" name="email" class="form-control" required
-                                        style="border: 1px solid #e6a756; border-radius: 10px;">
-                                </div>
-                                <div class="mb-4">
-                                    <label class="form-label fw-bold" style="color: #2F170F;">
-                                        <span data-en="Message" data-sv="Meddelande">Message</span>
-                                    </label>
-                                    <textarea name="message" class="form-control" rows="4" required
-                                        style="border: 1px solid #e6a756; border-radius: 10px;"></textarea>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary btn-lg px-5"
-                                        style="background: linear-gradient(45deg, #e6a756, #f4c571); border: none; border-radius: 50px; color: #2F170F; font-weight: 600;">
-                                        <i class="fas fa-paper-plane me-2" aria-hidden="true"></i>
-                                        <span data-en="Send Message" data-sv="Skicka meddelande">Send Message</span>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!-- Community Section -->
-                        <div class="community-section p-4 rounded-3"
-                            style="background: rgba(230, 167, 86, 0.1); border: 2px dashed #e6a756;">
-                            <div class="mb-3">
-                                <i class="fas fa-users fa-2x" style="color: #e6a756;" aria-hidden="true"></i>
-                            </div>
-                            <h4 class="mb-3" style="color: #2F170F;">
-                                Community
-                            </h4>
-                            <p class="mb-4" style="color: #5a4a3a;">
-                                <span data-en="Connect and stay updated with news and offers"
-                                    data-sv="Anslut och håll dig uppdaterad med nyheter och erbjudanden">Connect and
-                                    stay updated with news and offers</span>
-                            </p>
-                            <a href="https://chat.whatsapp.com/HNXZ2CZYXxYFR9FMo2dBQt"
-                                class="btn btn-primary btn-lg px-4 py-3 shadow" target="_blank"
-                                style="background: linear-gradient(45deg, #e6a756, #f4c571); border: none; border-radius: 50px; color: #2F170F; font-weight: 600;">
-                                <i class="fab fa-whatsapp me-2" aria-hidden="true"></i>
-                                <span data-en="Join Community" data-sv="Gå med">Join Community</span>
-                            </a>
-                        </div>
-
+            <!-- Contact Form -->
+            <div class="mb-4">
+                <form action="https://formsubmit.co/soulrisebylina@gmail.com" method="POST"
+                    class="text-start p-4 rounded-3 mx-auto"
+                    style="background: #ffffff; border: 1px solid #e6a756; max-width: 600px;">
+                    <input type="hidden" name="_subject" value="New message from Soul Rise Studio website">
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="text" name="_honey" style="display:none" aria-hidden="true" tabindex="-1">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold" style="color: #2F170F;">
+                            <span data-en="Name" data-sv="Namn">Name</span>
+                        </label>
+                        <input type="text" name="name" class="form-control" required
+                            style="border: 1px solid #e6a756; border-radius: 10px;">
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold" style="color: #2F170F;">
+                            <span data-en="Email" data-sv="Email">Email</span>
+                        </label>
+                        <input type="email" name="email" class="form-control" required
+                            style="border: 1px solid #e6a756; border-radius: 10px;">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-bold" style="color: #2F170F;">
+                            <span data-en="Message" data-sv="Meddelande">Message</span>
+                        </label>
+                        <textarea name="message" class="form-control" rows="4" required
+                            style="border: 1px solid #e6a756; border-radius: 10px;"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg px-5"
+                            style="background: linear-gradient(45deg, #e6a756, #f4c571); border: none; border-radius: 50px; color: #2F170F; font-weight: 600;">
+                            <i class="fas fa-paper-plane me-2" aria-hidden="true"></i>
+                            <span data-en="Send Message" data-sv="Skicka meddelande">Send Message</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Community Section -->
+            <div class="community-section p-4 rounded-3 text-center mx-auto"
+                style="background: rgba(230, 167, 86, 0.1); border: 2px dashed #e6a756; max-width: 600px;">
+                <div class="mb-3">
+                    <i class="fab fa-whatsapp fa-2x" style="color: #e6a756;" aria-hidden="true"></i>
                 </div>
+                <h4 class="mb-3" style="color: #2F170F;">
+                    Community
+                </h4>
+                <p class="mb-4" style="color: #5a4a3a;">
+                    <span data-en="Join our WhatsApp group to stay updated with news and offers"
+                        data-sv="Gå med i vår WhatsApp-grupp för att hålla dig uppdaterad med nyheter och erbjudanden">Gå
+                        med i vår WhatsApp-grupp för att hålla dig uppdaterad med nyheter och erbjudanden</span>
+                </p>
+                <a href="https://chat.whatsapp.com/HNXZ2CZYXxYFR9FMo2dBQt" class="btn btn-primary btn-sm px-3 py-2 shadow"
+                    target="_blank"
+                    style="background: linear-gradient(45deg, #e6a756, #f4c571); border: none; border-radius: 50px; color: #2F170F; font-weight: 600;">
+                    <i class="fab fa-whatsapp me-2" aria-hidden="true"></i>
+                    <span data-en="Join WhatsApp Group" data-sv="Gå med i WhatsApp-gruppen">Gå med i
+                        WhatsApp-gruppen</span>
+                </a>
             </div>
         </div>
     </section>

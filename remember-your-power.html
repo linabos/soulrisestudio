@@ -127,15 +127,37 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html#home" data-en="Home" data-sv="Hem">Home</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html#events" data-en="In Person" data-sv="På plats">In Person</a></li>
+                        <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html#home" data-en="Home" data-sv="Hem">Home</a></li>
+                        <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html#events" data-en="In Person" data-sv="På plats">In Person</a></li>
                         <!-- Desktop dropdown -->
-                        <li class="nav-item dropdown px-lg-4 d-none d-lg-block">
+                        <li class="nav-item dropdown px-lg-2 d-none d-lg-block">
+                            <a class="nav-link dropdown-toggle text-uppercase" href="https://retreat.soulrisestudio.com"
+                                id="retreatDropdown" role="button" aria-expanded="false" data-en="Retreat"
+                                data-sv="Retreat">Retreat</a>
+                            <ul class="dropdown-menu" aria-labelledby="retreatDropdown">
+                                <li><a class="dropdown-item" href="https://retreat.soulrisestudio.com" data-en="Wild Goddess Portal · Spain, April 2027" data-sv="Wild Goddess Portal · Spanien, april 2027">Wild Goddess Portal · Spanien</a></li>
+                                <li><a class="dropdown-item" href="index.html#events" data-en="Retreat Sweden" data-sv="Retreat Sverige">Retreat Sverige</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Mobile: Collapsible retreat menu -->
+                        <li class="nav-item px-lg-2 d-lg-none">
+                            <a class="nav-link text-uppercase" href="#" data-bs-toggle="collapse"
+                                data-bs-target="#mobileRetreatMenu" aria-expanded="false"
+                                aria-controls="mobileRetreatMenu" data-en="Retreat ▼" data-sv="Retreat ▼">Retreat ▼</a>
+                            <div class="collapse" id="mobileRetreatMenu">
+                                <a class="nav-link" href="https://retreat.soulrisestudio.com" style="padding-left: 2rem; font-size: 0.9rem;" data-en="Wild Goddess Portal · Spain, April 2027" data-sv="Wild Goddess Portal · Spanien, april 2027">Wild Goddess Portal · Spanien</a>
+                                <a class="nav-link" href="index.html#events" style="padding-left: 2rem; font-size: 0.9rem;" data-en="Retreat Sweden" data-sv="Retreat Sverige">Retreat Sverige</a>
+                            </div>
+                        </li>
+                        <!-- Desktop dropdown -->
+                        <li class="nav-item dropdown px-lg-2 d-none d-lg-block">
                             <a class="nav-link dropdown-toggle text-uppercase" href="index.html#services" id="servicesDropdown" role="button" aria-expanded="false" data-en="Services" data-sv="Tjänster">
                                 Services
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
                                 <li><a class="dropdown-item fw-bold" href="remember-your-power.html" data-en="✨ Remember Your Power · 3-month program" data-sv="✨ Remember Your Power · 3-mån program">✨ Remember Your Power</a></li>
+                                <li><a class="dropdown-item" href="index.html#source-connection" data-en="Source Connection Journey · online group" data-sv="Source Connection Journey · grupp online">Source Connection Journey</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="index.html#services" data-en="All Services" data-sv="Alla tjänster">All Services</a></li>
                                 <li><hr class="dropdown-divider"></li>
@@ -146,12 +168,26 @@
                                 <li><a class="dropdown-item" href="index.html#cacao-ceremonies" data-en="Cacao Ceremonies" data-sv="Kakaoceremoni">Cacao Ceremonies</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html#about" data-en="About" data-sv="Om mig">About</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="collaborations.html" data-en="Collaborations" data-sv="Samarbeten">Collaborations</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html#contact" data-en="Contact" data-sv="Kontakt">Contact</a></li>
+                        <!-- Mobile: Collapsible services menu -->
+                        <li class="nav-item px-lg-2 d-lg-none">
+                            <a class="nav-link text-uppercase" href="index.html#services" data-bs-toggle="collapse" data-bs-target="#mobileServicesMenu" aria-expanded="false">Services ▼</a>
+                            <div class="collapse" id="mobileServicesMenu">
+                                <a class="nav-link fw-bold" href="remember-your-power.html" style="padding-left: 2rem; font-size: 0.9rem;" data-en="✨ Remember Your Power · 3-month program" data-sv="✨ Remember Your Power · 3-mån program">✨ Remember Your Power</a>
+                                <a class="nav-link" href="index.html#source-connection" style="padding-left: 2rem; font-size: 0.9rem;" data-en="Source Connection Journey · online group" data-sv="Source Connection Journey · grupp online">Source Connection Journey</a>
+                                <a class="nav-link" href="index.html#life-force-activation" style="padding-left: 2rem; font-size: 0.9rem;">Source Transmission</a>
+                                <a class="nav-link" href="index.html#spinal-energetics" style="padding-left: 2rem; font-size: 0.9rem;">Spinal Energetics</a>
+                                <a class="nav-link" href="index.html#breathwork" style="padding-left: 2rem; font-size: 0.9rem;">Breathwork</a>
+                                <a class="nav-link" href="index.html#reiki-healing" style="padding-left: 2rem; font-size: 0.9rem;">Reiki Healing</a>
+                                <a class="nav-link" href="index.html#cacao-ceremonies" style="padding-left: 2rem; font-size: 0.9rem;">Cacao Ceremonies</a>
+                            </div>
+                        </li>
+                        <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html#about" data-en="About" data-sv="Om mig">About</a></li>
+                        <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html#testimonials" data-en="Client Love" data-sv="Client Love">Client Love</a></li>
+                        <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="collaborations.html" data-en="Collaborations" data-sv="Samarbeten">Collaborations</a></li>
+                        <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html#contact" data-en="Contact" data-sv="Kontakt">Contact</a></li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item px-lg-4">
+                        <li class="nav-item px-lg-2">
                             <button id="languageToggle" class="btn btn-outline-light">
                                 <i class="fas fa-globe me-2"></i>
                                 <span id="langText">Svenska</span>

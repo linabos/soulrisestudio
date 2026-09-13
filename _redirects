@@ -1,0 +1,6 @@
+# Retired pages (removed 2026-08-06)
+# about.html and store.html were unmodified Bootstrap template demo content.
+# products.html is superseded by the Services section on the homepage.
+/about.html       /#about       301
+/store.html       /#contact     301
+/products.html    /#services    301

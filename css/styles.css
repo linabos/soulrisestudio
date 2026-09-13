@@ -10868,12 +10868,6 @@ p {
   padding-bottom: 0 !important;
 }
 
-@media (min-width: 768px) {
-  #cacao-ceremonies {
-    background-color: #6b7c5d;
-  }
-}
-
 #about {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
@@ -10944,6 +10938,7 @@ p {
 @media (min-width: 992px) {
   #mainNav .navbar-nav .nav-item .nav-link {
     font-size: 0.9rem;
+    white-space: nowrap;
   }
   #mainNav .navbar-nav .nav-item .nav-link:hover {
     color: rgba(250, 240, 230, 0.8);

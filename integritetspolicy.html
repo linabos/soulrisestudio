@@ -13,19 +13,138 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet" />
+    <!-- Font Awesome (globe icon in the language toggle) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <!-- Cookie consent + consent-gated Meta Pixel / Instagram (see js/consent.js) -->
     <script src="js/consent.js"></script>
+    <style>
+        /* Navbar dropdowns, matching the rest of the site */
+        @media (min-width: 992px) {
+            .dropdown:hover .dropdown-menu {
+                display: block !important;
+            }
+        }
+
+        .dropdown-menu {
+            margin-top: 0;
+            background-color: #8B7355 !important;
+            border: 1px solid #2F170F;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(47, 23, 15, 0.15);
+        }
+
+        .dropdown-item {
+            color: #FAF0E6 !important;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover,
+        .dropdown-item:focus {
+            background-color: #e6a756 !important;
+            color: #2F170F !important;
+        }
+
+        .dropdown-divider {
+            border-top: 1px solid #2F170F;
+            margin: 0.25rem 0;
+        }
+
+        #policyLang {
+            border-color: #e6a756;
+            color: #e6a756;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        #policyLang:hover {
+            background-color: #e6a756;
+            color: #000;
+            border-color: #e6a756;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar" style="background-color: #2F170F;">
-        <div class="container d-flex justify-content-between align-items-center py-2">
-            <a class="text-decoration-none" href="index.html" style="color: #F0E6D2; font-weight: 600;">
-                <span data-en="← Back to home" data-sv="← Tillbaka till startsidan">← Tillbaka till startsidan</span>
-            </a>
-            <button id="policyLang" class="btn btn-outline-light btn-sm" type="button">Svenska</button>
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4 sticky-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand text-uppercase fw-bold" href="index.html" id="navbarBrand" style="font-size: 1.2rem; opacity: 0; transition: opacity 0.3s ease;">Soulrise Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html#home">Home</a></li>
+                    <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html#events" data-en="In Person" data-sv="På plats">In Person</a></li>
+                    <!-- Desktop dropdown -->
+                    <li class="nav-item dropdown px-lg-2 d-none d-lg-block">
+                        <a class="nav-link dropdown-toggle text-uppercase" href="https://retreat.soulrisestudio.com"
+                            id="retreatDropdown" role="button" aria-expanded="false" data-en="Retreat"
+                            data-sv="Retreat">Retreat</a>
+                        <ul class="dropdown-menu" aria-labelledby="retreatDropdown">
+                            <li><a class="dropdown-item" href="https://retreat.soulrisestudio.com" data-en="Wild Goddess Portal · Spain, April 2027" data-sv="Wild Goddess Portal · Spanien, april 2027">Wild Goddess Portal · Spanien</a></li>
+                            <li><a class="dropdown-item" href="index.html#events" data-en="Retreat Sweden" data-sv="Retreat Sverige">Retreat Sverige</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Mobile: Collapsible retreat menu -->
+                    <li class="nav-item px-lg-2 d-lg-none">
+                        <a class="nav-link text-uppercase" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#mobileRetreatMenu" aria-expanded="false"
+                            aria-controls="mobileRetreatMenu" data-en="Retreat ▼" data-sv="Retreat ▼">Retreat ▼</a>
+                        <div class="collapse" id="mobileRetreatMenu">
+                            <a class="nav-link" href="https://retreat.soulrisestudio.com" style="padding-left: 2rem; font-size: 0.9rem;" data-en="Wild Goddess Portal · Spain, April 2027" data-sv="Wild Goddess Portal · Spanien, april 2027">Wild Goddess Portal · Spanien</a>
+                            <a class="nav-link" href="index.html#events" style="padding-left: 2rem; font-size: 0.9rem;" data-en="Retreat Sweden" data-sv="Retreat Sverige">Retreat Sverige</a>
+                        </div>
+                    </li>
+                    <!-- Desktop dropdown -->
+                    <li class="nav-item dropdown px-lg-2 d-none d-lg-block">
+                        <a class="nav-link dropdown-toggle text-uppercase" href="index.html#services" id="servicesDropdown" role="button" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item fw-bold" href="remember-your-power.html" data-en="✨ Remember Your Power · 3-month program" data-sv="✨ Remember Your Power · 3-mån program">✨ Remember Your Power</a></li>
+                            <li><a class="dropdown-item" href="index.html#source-connection" data-en="Source Connection Journey · online group" data-sv="Source Connection Journey · grupp online">Source Connection Journey</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="index.html#services">All Services</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="index.html#life-force-activation">Life Force Activation</a></li>
+                            <li><a class="dropdown-item" href="index.html#spinal-energetics">Spinal Energetics</a></li>
+                            <li><a class="dropdown-item" href="index.html#breathwork">Breathwork</a></li>
+                            <li><a class="dropdown-item" href="index.html#reiki-healing">Reiki Healing</a></li>
+                            <li><a class="dropdown-item" href="index.html#cacao-ceremonies">Cacao Ceremonies</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Mobile: Collapsible services menu -->
+                    <li class="nav-item px-lg-2 d-lg-none">
+                        <a class="nav-link text-uppercase" href="index.html#services" data-bs-toggle="collapse" data-bs-target="#mobileServicesMenu" aria-expanded="false">Services ▼</a>
+                        <div class="collapse" id="mobileServicesMenu">
+                            <a class="nav-link fw-bold" href="remember-your-power.html" style="padding-left: 2rem; font-size: 0.9rem;" data-en="✨ Remember Your Power · 3-month program" data-sv="✨ Remember Your Power · 3-mån program">✨ Remember Your Power</a>
+                            <a class="nav-link" href="index.html#source-connection" style="padding-left: 2rem; font-size: 0.9rem;" data-en="Source Connection Journey · online group" data-sv="Source Connection Journey · grupp online">Source Connection Journey</a>
+                            <a class="nav-link" href="index.html#life-force-activation" style="padding-left: 2rem; font-size: 0.9rem;">Source Transmission</a>
+                            <a class="nav-link" href="index.html#spinal-energetics" style="padding-left: 2rem; font-size: 0.9rem;">Spinal Energetics</a>
+                            <a class="nav-link" href="index.html#breathwork" style="padding-left: 2rem; font-size: 0.9rem;">Breathwork</a>
+                            <a class="nav-link" href="index.html#reiki-healing" style="padding-left: 2rem; font-size: 0.9rem;">Reiki Healing</a>
+                            <a class="nav-link" href="index.html#cacao-ceremonies" style="padding-left: 2rem; font-size: 0.9rem;">Cacao Ceremonies</a>
+                        </div>
+                    </li>
+                    <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html#about" data-en="About" data-sv="Om mig">About</a></li>
+                    <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html#testimonials" data-en="Client Love" data-sv="Client Love">Client Love</a></li>
+                    <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="collaborations.html" data-en="Collaborations" data-sv="Samarbeten">Collaborations</a></li>
+                    <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html#contact" data-en="Contact" data-sv="Kontakt">Contact</a></li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item px-lg-2">
+                        <button id="policyLang" class="btn btn-outline-light">
+                            <i class="fas fa-globe me-2"></i>
+                            <span id="langText">Svenska</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -181,7 +300,8 @@
                 document.documentElement.lang = lang;
                 document.getElementById('policy-sv').style.display = lang === 'sv' ? 'block' : 'none';
                 document.getElementById('policy-en').style.display = lang === 'en' ? 'block' : 'none';
-                btn.textContent = lang === 'en' ? 'Svenska' : 'English';
+                var label = document.getElementById('langText') || btn;
+                label.textContent = lang === 'en' ? 'Svenska' : 'English';
                 document.querySelectorAll('[data-en][data-sv]').forEach(function (el) {
                     var t = el.getAttribute('data-' + lang);
                     if (t) el.textContent = t;
