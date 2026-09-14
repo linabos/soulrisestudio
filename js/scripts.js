@@ -24,36 +24,8 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
     
-    // Hover dropdown functionality
-    const dropdown = document.querySelector('.dropdown');
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    
-    if (dropdown && dropdownToggle && dropdownMenu) {
-        // Prevent default click behavior on dropdown toggle
-        dropdownToggle.addEventListener('click', function (e) {
-            e.preventDefault();
-            // Still allow navigation to #services if clicked
-            const target = document.querySelector('#services');
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-        
-        // Show dropdown on hover
-        dropdown.addEventListener('mouseenter', function () {
-            dropdownMenu.classList.add('show');
-        });
-        
-        // Hide dropdown when leaving the entire dropdown area
-        dropdown.addEventListener('mouseleave', function () {
-            dropdownMenu.classList.remove('show');
-        });
-    }
-    
+    // Dropdown hover-to-open is handled purely by CSS (.dropdown:hover .dropdown-menu),
+    // so each dropdown toggle's own href just works via the smooth-scroll handler above.
 })
 
 
