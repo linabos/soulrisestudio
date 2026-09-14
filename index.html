@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 
 <head>
     <meta charset="utf-8" />
@@ -52,10 +52,14 @@
         }
 
         /* The widget's own white box has a natural gap above its content but sits
-           flush against its bottom edge — add matching breathing room at the bottom. */
+           flush against its bottom edge — add matching breathing room at the bottom.
+           It also hardcodes its own max-width (700px), which we widen here so it
+           actually fills more of the wider container around it. */
         #sb_widget>section {
             padding-bottom: 4rem;
+            max-width: 1100px !important;
         }
+
 
         /* Highlight the nav link for whichever section is currently in view. */
         #mainNav .navbar-nav .nav-link.nav-active {
@@ -349,6 +353,8 @@
           "url": "https://www.soulrisestudio.com",
           "description": "Soulrise Studio erbjuder Reiki Healing, Life Force Activation, Spinal Energetics, Breathwork och Kakaoceremoni med legitimerad naprapat.",
           "image": "https://www.soulrisestudio.com/assets/img/bg.jpg",
+          "email": "soulrisebylina@gmail.com",
+          "sameAs": ["https://www.instagram.com/soulrise.bylina"],
           "areaServed": ["Sverige", "Spanien", "Online"],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -566,10 +572,13 @@
         style="padding: 2rem 0 4rem 0; background-color: #F0E6D2; margin-top: 0; margin-bottom: 0;">
         <div class="container">
             <div class="text-center mb-4">
+                <i class="fas fa-sun mb-2" style="color: #e6a756; font-size: 1.5rem; display: block;"></i>
                 <h2 class="section-heading">
                     <span class="section-heading-lower" style="font-size: 2.5rem;" data-en="Book Online" data-sv="Boka">Book Online</span>
                 </h2>
             </div>
+        </div>
+        <div class="container-fluid" style="max-width: 1600px; padding-left: 2rem; padding-right: 2rem;">
             <script src="https://widget.simplybook.it/react-widget/public/runtime.js"></script>
             <script src="https://widget.simplybook.it/react-widget/public/app.js"></script>
             <link rel="stylesheet" href="https://widget.simplybook.it/react-widget/public/app.css">
@@ -597,10 +606,10 @@
                         while ((node = walker.nextNode())) {
                             if (node.children.length === 0) {
                                 const text = node.textContent.trim();
-                                if (/^deposit$/i.test(text)) {
+                                if (/^(deposit|deposition)$/i.test(text)) {
                                     const row = node.parentElement;
                                     if (row && row.children.length === 2) rowsToHide.push(row);
-                                } else if (/^[\d\s.,]+\s*(?:kr|SEK|USD|\$|€)\s+deposit$/i.test(text)) {
+                                } else if (/^[\d\s.,]+\s*(?:kr|SEK|USD|\$|€)\s+(?:deposit|deposition)$/i.test(text)) {
                                     rowsToHide.push(node);
                                 }
                             }
@@ -626,8 +635,12 @@
                     expandObserver.observe(widgetContainer, { childList: true, subtree: true });
 
                     // Hide the service search box — not needed with only a handful of services.
+                    // The widget's own placeholder text changes with the site's language
+                    // (e.g. "Search" vs "Söka"), so match either rather than one hardcoded string.
                     function hideServiceSearch(root) {
-                        const input = root.querySelector('input[placeholder="Search"]');
+                        const input = Array.from(root.querySelectorAll('input[placeholder]')).find((el) =>
+                            /^(search|söka)$/i.test(el.placeholder.trim())
+                        );
                         if (input && input.parentElement) {
                             input.parentElement.style.display = 'none';
                         }
@@ -635,10 +648,27 @@
                     new MutationObserver(() => hideServiceSearch(widgetContainer))
                         .observe(widgetContainer, { childList: true, subtree: true });
 
+                    // The widget appends a language qualifier to the "Read more" link (e.g.
+                    // "Läs mer på engelska") whenever the full description's language differs
+                    // from the site's current language — confusing since the visible preview
+                    // is already correct. Strip the qualifier, keep just "Läs mer" / "Read more".
+                    function simplifyReadMoreLink(root) {
+                        Array.from(root.querySelectorAll('a, span, div')).forEach((el) => {
+                            if (el.children.length > 0) return;
+                            const text = el.textContent.trim();
+                            const match = text.match(/^(läs mer|read more)\b/i);
+                            if (match && text.length > match[0].length) {
+                                el.textContent = match[0];
+                            }
+                        });
+                    }
+                    new MutationObserver(() => simplifyReadMoreLink(widgetContainer))
+                        .observe(widgetContainer, { childList: true, subtree: true, characterData: true });
+
                     // Hide the "Select service" step title — the widget heading above it already says "Book Online".
                     function hideSelectServiceHeading(root) {
                         const heading = Array.from(root.querySelectorAll('h2')).find((h) =>
-                            /^select services?$/i.test(h.textContent.trim())
+                            /^(select services?|välj tjänst(er)?)$/i.test(h.textContent.trim())
                         );
                         if (heading) heading.style.display = 'none';
                     }
@@ -711,9 +741,10 @@
                     }, true);
 
                     // Hide the "My personal data" link — not relevant for guests booking here.
+                    // Matches both languages since the widget's text follows the site's language.
                     function hidePersonalDataLink(root) {
                         const link = Array.from(root.querySelectorAll('a')).find((a) =>
-                            a.textContent.trim() === 'My personal data'
+                            /^(my personal data|mina personuppgifter)$/i.test(a.textContent.trim())
                         );
                         if (link) (link.closest('div') || link).style.display = 'none';
                     }
@@ -724,7 +755,7 @@
                     // service/duration/price summary chip so it just reads "Continue".
                     function simplifyContinueButton(root) {
                         Array.from(root.querySelectorAll('button')).forEach((btn) => {
-                            if (btn.children.length === 2 && /^continue$/i.test(btn.children[0].textContent.trim())) {
+                            if (btn.children.length === 2 && /^(continue|fortsätt)$/i.test(btn.children[0].textContent.trim())) {
                                 btn.children[1].style.display = 'none';
                             }
                         });
@@ -737,14 +768,14 @@
                     // the service (name, duration, price) before the date/time.
                     function simplifyBookingDetails(root) {
                         const heading = Array.from(root.querySelectorAll('h1, h2, h3')).find((h) =>
-                            /^booking details$/i.test(h.textContent.trim())
+                            /^(booking details|bokningsdetaljer)$/i.test(h.textContent.trim())
                         );
                         if (!heading || !heading.nextElementSibling) return;
                         const summaryWrap = heading.nextElementSibling.firstElementChild;
                         if (!summaryWrap || summaryWrap.children.length < 2) return;
 
                         const servicesLabel = Array.from(summaryWrap.querySelectorAll('p')).find((p) =>
-                            p.textContent.trim() === 'Services'
+                            /^(services|tjänster)$/i.test(p.textContent.trim())
                         );
                         if (servicesLabel) {
                             const row = servicesLabel.parentElement && servicesLabel.parentElement.parentElement;
@@ -774,7 +805,7 @@
                     // so clients see it before they confirm — not just in the confirmation email.
                     function injectCancellationPolicyNote(root) {
                         const heading = Array.from(root.querySelectorAll('h1, h2, h3')).find((h) =>
-                            /^booking details$/i.test(h.textContent.trim())
+                            /^(booking details|bokningsdetaljer)$/i.test(h.textContent.trim())
                         );
                         if (!heading || !heading.nextElementSibling) return;
                         const summaryWrap = heading.nextElementSibling.firstElementChild;
@@ -794,7 +825,7 @@
                     // own "You can pay the full amount now..." note is confusing — hide it.
                     function hideFullPaymentNote(root) {
                         const note = Array.from(root.querySelectorAll('p')).find((p) =>
-                            /^you can pay the full amount now/i.test(p.textContent.trim())
+                            /^(you can pay the full amount now|du kan betala hela beloppet nu)/i.test(p.textContent.trim())
                         );
                         if (note) {
                             const box = note.parentElement && note.parentElement.parentElement;
@@ -808,7 +839,7 @@
                     // payment method (Stripe) and "Proceed" button below already handle payment.
                     function hidePayFullAmountButton(root) {
                         const btn = Array.from(root.querySelectorAll('button')).find((b) =>
-                            b.textContent.trim() === 'Pay full amount'
+                            /^(pay full amount|betala hela beloppet)$/i.test(b.textContent.trim())
                         );
                         if (btn) btn.style.display = 'none';
                     }
@@ -820,7 +851,7 @@
                     function injectDateTimeIntoSummary(root) {
                         if (!selectedDateTimeText) return;
                         const heading = Array.from(root.querySelectorAll('h1, h2, h3')).find((h) =>
-                            /^summary$/i.test(h.textContent.trim())
+                            /^(summary|sammanfattning)$/i.test(h.textContent.trim())
                         );
                         if (!heading) return;
                         let row = heading.nextElementSibling;
@@ -971,6 +1002,7 @@
         style="padding: 3rem 0 3.5rem 0; background-color: #6b7c5d; margin-top: 0; margin-bottom: 0;">
         <div class="container">
             <div class="text-center mb-5">
+                <i class="fas fa-sun mb-2" style="color: #e6a756; font-size: 1.5rem; display: block;"></i>
                 <h2 class="section-heading" style="color: white;">
                     <span class="section-heading-lower" style="font-size: 2.5rem;" data-en="In Person" data-sv="På plats">In Person</span>
                 </h2>
@@ -994,15 +1026,16 @@
                         <h5 style="color: #2F170F; font-size: 1.1rem; font-weight: 600;">Source Transmission - Life
                             Force Activation</h5>
                         <p class="mb-0" style="font-size: 0.85rem; color: #a69073;"
-                            data-en="Group session" data-sv="Gruppsession">Gruppsession</p>
+                            data-en="Group & private sessions" data-sv="Gruppsessioner och enskilda">Gruppsessioner
+                            och enskilda</p>
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="bg-faded p-4 rounded shadow h-100 text-center">
                         <i class="fas fa-hand-holding-heart mb-3" style="font-size: 1.8rem; color: #e6a756;"></i>
-                        <h5 style="color: #2F170F; font-size: 1.1rem; font-weight: 600;">Source Transmission - Life
-                            Force Activation</h5>
+                        <h5 style="color: #2F170F; font-size: 1.1rem; font-weight: 600;">Spinal Energetics <span
+                                data-en="1:1" data-sv="1:1">1:1</span></h5>
                         <p class="mb-0" style="font-size: 0.85rem; color: #a69073;"
                             data-en="90 min · Private session" data-sv="90 min · Enskild session">90 min · Enskild
                             session</p>
@@ -1056,6 +1089,7 @@
         style="padding: 2.5rem 0 6rem 0; margin-top: 0; margin-bottom: 0 !important; background-color: #2F170F;">
         <div class="container">
             <div class="text-center mb-5">
+                <i class="fas fa-sun mb-2" style="color: #e6a756; font-size: 1.5rem; display: block;"></i>
                 <h2 class="section-heading" style="color: #F0E6D2;">
                     <span class="section-heading-lower" style="font-size: 2.5rem;" data-en="Services" data-sv="Tjänster">Services</span>
                 </h2>
@@ -1199,6 +1233,7 @@
         style="padding: 3rem 0 4rem 0; margin-top: 0 !important; margin-bottom: 0 !important; background-color: #6b7c5d;">
         <div class="container">
             <div class="text-center mb-5">
+                <i class="fas fa-sun mb-2" style="color: #e6a756; font-size: 1.5rem; display: block;"></i>
                 <h2 class="section-heading">
                     <span class="section-heading-lower" style="color: #F0E6D2; font-size: 2.5rem;" data-en="About Me"
                         data-sv="Om mig">Om mig</span>
@@ -1262,6 +1297,7 @@
         style="padding: 2rem 0 3rem 0; margin-top: 0; background-color: #faf0e6;">
         <div class="container">
             <div class="text-center mb-4">
+                <i class="fas fa-sun mb-2" style="color: #e6a756; font-size: 1.5rem; display: block;"></i>
                 <h2 class="section-heading">
                     <span class="section-heading-lower" style="color: #2F170F; font-size: 2.5rem;">Client Love</span>
                 </h2>
@@ -1328,6 +1364,7 @@
         style="padding: 3rem 0 4rem 0; margin-top: 0; background-color: #F0E6D2;">
         <div class="container">
             <div class="text-center mb-4">
+                <i class="fas fa-sun mb-2" style="color: #e6a756; font-size: 1.5rem; display: block;"></i>
                 <h2 class="section-heading">
                     <span class="section-heading-lower" style="color: #2F170F; font-size: 2.5rem;">Connect From
                         Anywhere</span>
@@ -1427,7 +1464,7 @@
     <!-- Language Switcher JS -->
     <script>
         // Language switching functionality with persistence
-        let currentLanguage = localStorage.getItem('selectedLanguage') || 'en';
+        let currentLanguage = localStorage.getItem('selectedLanguage') || 'sv';
 
         document.addEventListener('DOMContentLoaded', function () {
             const languageToggle = document.getElementById('languageToggle');
